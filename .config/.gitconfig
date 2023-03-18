@@ -1,0 +1,8 @@
+[user]
+	email = ogagaonuta@gmail.com
+	name = David Onuta
+	username = OgagaOnuta
+[core]
+	editor = emacs
+[init]
+	defaultBranch = main
