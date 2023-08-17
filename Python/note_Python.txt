@@ -1,5 +1,5 @@
 Python is an Object Oriented Language
-meaning that everything in Python can be treated as objects
+meaning that everything in Python can be treated as objects,
 everything is on a First-Class level
 from variables, to functions, to classes, to objects, to methods,
 to types, to integers, floats, whatever you can think of...
@@ -11,7 +11,7 @@ Python is a interpreted language
 Statements in Python don't have a closing, unlike C
 Variables do not need to be initialized,
 they can just be declared and assigned values
->>> var = value
+>>> var = "value"
 
 Functions, Loops, Control and Conditional statements
 all end with a colon (:)
@@ -28,4 +28,3 @@ as seen above
 
 MORE INFO LOADING...
 PLEASE CONTRIBUTE OTHER FACTS THAT COMES TO MIND...
-
