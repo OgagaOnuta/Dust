@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
-# If age is 5, Go to Kindergarten
-# Ages 6 through 17 goes to grades 1 through 12
-# If age is greater than 17, go to College
-# Complete with 10 or less lines
+'''
+If age is 5, Go to Kindergarten
+Ages 6 through 17 goes to grades 1 through 12
+If age is greater than 17, go to College
+Complete with 10 or less lines
+'''
 
 # Collect age as input
 age = eval(input("Enter age: "))

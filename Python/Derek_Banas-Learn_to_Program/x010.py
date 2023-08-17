@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
-# Problem: Receive miles and convert to kilometers
-# kilometers = miles * 1.60934
+'''
+Problem: Receive miles and convert to kilometers
+kilometers = miles * 1.60934
+'''
 
 # Enter miles m
 miles = int(input("Enter miles: "))

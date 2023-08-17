@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
-# The type() function returns the type of the object passed to it
+'''
+The type() function returns the type of the object passed to it
+The len() function returns the length of a string
+The str() function converts the input to a string
+The ord() function converts characters to ASCII unicode
+The chr() function converts ASCII unicode to characters
+'''
 
 samp_string = "This is a very important string"
 print(samp_string[0])

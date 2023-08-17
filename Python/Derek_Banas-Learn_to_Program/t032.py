@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
-# methods can be used without referencing
-# the module because of the from statement
+'''
+methods can be used without referencing
+the module because of the "from" statement
+'''
+
 from decimal import Decimal as D
 
 sum = D(0)

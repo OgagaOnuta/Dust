@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+'''
+Variable names can contain alphabets, numbers, and underscores but can
+only begin with an alphabet or underscore, and must not contain keywords
+
+The split() function separates input by a delimiter
+The int() function converts input to integers
+'''
+
 # This is a single-line comment in Python
 '''
 This is a multi-line
@@ -12,15 +20,10 @@ name = input("What is your name? ")
 # Print out hello followed by the name they entered
 print("Hello ", name, "\n")
 
-# Variable names can contain alphabets, numbers, and underscores but can
-# only begin with an alphabet or underscore, and must not contain keywords
-
 # Ask the user to input 2 values and store them in variables num1 and num2
-# The split() function separates input by a delimiter
 num1, num2 = input("Enter 2 numbers: ").split()
 
 # Convert the strings into regular numbers (Integers)
-# The int() function converts input to integers
 num1 = int(num1)
 num2 = int(num2)
 

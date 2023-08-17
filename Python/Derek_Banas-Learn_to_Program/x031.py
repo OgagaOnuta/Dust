@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
-# Receive a string
-# Hide its meaning by turning it into a string of unicode
-# Translate from unicode back to the original string
+'''
+Receive a string
+Hide its meaning by turning it into a string of unicode
+Translate from unicode back to the original string
+'''
 
 # Receive input as string
 user_input = str(input("Enter message: "))

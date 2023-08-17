@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 
-# math is a module, and methods can only be accessed by
-# referencing the module because of the import statement
+'''
+"math" is a module, and methods can only be accessed by
+referencing the module because of the "import" statement
+'''
+
 import math
 
 print("ceil(4.4) = ", math.ceil(4.4))  # Round up

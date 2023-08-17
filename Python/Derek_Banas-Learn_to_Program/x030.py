@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
-# Using a do...while loop,
-# Guess a number between 1 and 10,
-# and tell the user if they were right
+'''
+Using a do...while loop,
+Guess a number between 1 and 10,
+and tell the user if they were right
+'''
 
 import random
 
