@@ -2,7 +2,7 @@
 
 '''
 A prime can only be divided by 1 and itself
-5 s a prime of 1 and 5 = positive factor
+5 is a prime of 1 and 5 = positive factor
 6 is not a prime; 1, 2, 3, 6
 '''
 

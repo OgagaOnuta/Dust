@@ -2,7 +2,7 @@
 
 '''
 "math" is a module, and methods can only be accessed by
-referencing the module because of the "import" statement
+referencing the module when using the "import" statement
 '''
 
 import math
