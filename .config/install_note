@@ -1,0 +1,5 @@
+emacs
+=> sudo apt install emacs-nox
+
+pycodestyle
+=> pip install pycodestyle
