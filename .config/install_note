@@ -2,4 +2,12 @@ emacs
 => sudo apt install emacs-nox
 
 pycodestyle
+=> sudo apt install python3-pip
 => pip install pycodestyle
+
+Adding directory to PATH
+=> open the .bashrc file
+=> paste the export syntax at the end of the file
+   export PATH="/Directory:$PATH"
+=> save and exit
+=> execute the script or reboot the system
