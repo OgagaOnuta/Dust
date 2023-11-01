@@ -11,3 +11,10 @@ Adding directory to PATH
    export PATH="/Directory:$PATH"
 => save and exit
 => execute the script or reboot the system
+
+git configuration
+=> git config --global user.email "user@email.com"
+=> git config --global user.name "first_name last_name"
+=> git config --global user.username "username"
+=> git config --global core.editor "file_editor"
+=> git config --global init.defaultBranch "main"
