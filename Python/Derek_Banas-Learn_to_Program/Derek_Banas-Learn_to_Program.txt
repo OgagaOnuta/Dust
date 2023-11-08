@@ -296,6 +296,15 @@ NEGATIVE LOOK BEHIND : (?<!expression)
 18. Regular Expression Tutorial 4
 =================================
 
+- The OR / pipe (|) is used to define different matches
+
+Groups are used to retrieve parts of regex matches
+- regex.group()
+
+Match Object Functions provide more information on your matches
+
+Named Groups are used to assign specific names to your matches
+- (?P<name>condition)
 
 19. Python SQLite Tutorial
 ==========================
