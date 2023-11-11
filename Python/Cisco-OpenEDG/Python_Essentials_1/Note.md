@@ -137,12 +137,18 @@ _Subexpressions in parentheses_ are always calculated first.
 
 The Hierarchy of Priorities (from highest to lowest)
 
-1. +, - (unary)
-2. **
-3. *, /, //, %
-4. +, - (binary)
-5. <, <=, >, >=
-6. ==, !=
+| Priority | Operator | |
+| - | - | - |
+| 1 | `~`, `+`, `-` | unary |
+| 2 | `**` | |
+| 3 | `*`, `/`, `//`, `%` | |
+| 4 | `+`, `-` | binary |
+| 5 | `<<`, `>>` | |
+| 6 | `<`, `<=`, `>`, `>=` | |
+| 7 | `==`, `!=` | |
+| 8 | `&` | |
+| 9 | `\|` | |
+| 10 | `=`, `+=`, `-=`, `*=`, `/=`, `%=`, `&=`, `^=`, `\|=`, `<<=`, `>>=` | |
 
 ### Section 4 - Variables
 
@@ -367,7 +373,7 @@ The arguments of these operators _must be integers_.
   * requires exactly two `1`s to provide `1` as the result
 * `|` (bar) - _bitwise disjunction_
   * requires at least one `1` to provide `1` as the result
-* `~` (tilde) - _bitwise negation_
+* `~` (tilde) - _bitwise negation_ (`~x` is usually `-x - 1` for _signed numbers_)
 * `^` (caret) - _bitwise exclusive or (xor)_
   * requires exactly one `1` to provide `1` as the result
 
@@ -435,3 +441,23 @@ value or to change the selected bits.
     
     flag_register ^= the_mask
     ```
+
+_Shifting_ applies to only _integer_ values.
+
+* _Shifting_ a value one bit to the left corresponds to multiplying it by two.
+  * `<<` represents _left shift_ (`value << bits`).
+* _Shifting_ a value one bit to the right corresponds to dividing it by two.
+  * `>>` represents _right shift_ (`value >> bits`).
+
+The left argument is an integer value whose bits are shifted.
+The right argument determines the size of the shift.
+The priority of these operators is very high.
+
+Note:
+
+* `17 << 2`
+  * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
+  * -> `68` (shifting to the left by `2` bits is the same as integer multiplication by `4`)
+* `17 >> 1`
+  * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
+  * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
