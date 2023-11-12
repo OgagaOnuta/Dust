@@ -1,5 +1,6 @@
 emacs
 => sudo apt install emacs-nox
+(copy personalized theme file to ~/.emacs.d/)
 
 pycodestyle
 => sudo apt install python3-pip
