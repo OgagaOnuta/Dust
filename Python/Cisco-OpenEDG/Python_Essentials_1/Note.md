@@ -438,7 +438,7 @@ value or to change the selected bits.
     ```py
     x ^ 1 = ~x
     x ^ 0 = x
-    
+
     flag_register ^= the_mask
     ```
 
