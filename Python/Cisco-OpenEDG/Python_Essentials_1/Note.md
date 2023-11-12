@@ -461,3 +461,80 @@ Note:
 * `17 >> 1`
   * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
   * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
+
+### Section 4 - Lists
+
+Variables that are able to store exactly one given value are sometimes called
+_scalars_ by analogy with mathematics.
+
+The **List** is a _type of data_ in Python used to store multiple objects.
+It is _ordered_ and _mutable_. Lists _begin with an open square bracket `[`_,
+and _end with a closed square bracket `]`_, and the values in the brackets are
+separated by _commas `,`_ (`numbers = [1, 2, 3, 4, 5]`).
+
+The _elements_ (values) inside a list may have different types including lists.
+The elements in a list are always numbered starting from zero (0).
+
+The _value_ inside the brackets `numbers[0]` which selects one element of the
+list is called an _index_, while the _operation_ of selecting an element from
+the list is known as _indexing_.
+
+The `len()` function is used to check the _length_ of the list, that is how
+many elements are present in the list.
+
+```py
+print(len(numbers))  # Outputs the number of elements in the list
+```
+
+The `del` instruction is used to remove/delete elements from a list, or even
+the entire list.
+
+```py
+del numbers[1]  # Deletes the specified element from the list
+del numbers  # Deletes the entire list
+```
+
+Negative indices are legal.
+
+```py
+numbers[-1]  # The last element
+numbers[-2]  # The element before the last
+```
+
+A _method_ is a specific kind of function. It behaves like a function and looks
+like a function, but differs in the way in which it acts, and its invocation
+style. A method is able to change the state of a selected entity.
+
+A function doesn't belong to any data. It gets data, it may create new data and
+it (generally) produces a result.
+
+A method is owned by the data it works for, while a function is owned by the
+whole code.
+This means that invoking a method requires some specification of the data from
+which the method is invoked.
+
+```py
+result = function(arg)
+result = data.method(arg)
+```
+
+The `append()` method takes an argument and puts it at the end of the list.
+
+```py
+list.append(value)
+```
+
+The `insert()` method can add a new element at any place in the list.
+
+```py
+list.insert(location, values)
+```
+
+You can start a list's life by making it empty. This is done with an empty pair
+of square brackets.
+
+```py
+my_list = []
+```
+
+### Section 5 - Sorting simple lists: the bubble sort algorithm
