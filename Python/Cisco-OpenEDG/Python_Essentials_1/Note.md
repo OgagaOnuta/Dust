@@ -161,7 +161,9 @@ Rules for naming variables in Python:
   and _underscore_
 * the name _must_ begin with a _letter_ or _underscore_
 * the name is _case-sensitive_
-* the name _must not_ be a _Python keyword_The above-listed rules also apply to _function names_.
+* the name _must not_ be a _Python keyword_
+
+The above-listed rules also apply to _function names_.
 
 **PEP 8 -- Style Guide for Python Code** naming convention for variables and
 functions:
@@ -621,3 +623,63 @@ The `not in` operator checks if a given element (its left argument) is absent
 in a list (the right argument), and returns `True` if that's the case.
 
 ### Section 7 - Lists in advanced applications
+
+**List Comprehension** is the special syntax used by Python in order to fill
+massive lists. It is created on-the-fly during program execution, and is not
+described statically.
+
+```py
+# List Comrehension syntax
+[expression for element in list if conditional]
+```
+
+```py
+# Filling the second row of the chessboard
+row = [WHITE_PAWN for i in range(8)]
+```
+
+The part of the code placed inside the square brackets specifies:
+
+* the data to be used to fill the list (`WHITE_PAWN`)
+* the clause specifying how many times the data occurs inside the list
+  (`for i in range(8)`)
+
+**Two-dimensional arrays _(matrices)_**: If we want to create a list of lists
+representing the whole chessboard, it may be done in the following way:
+
+```py
+# Creating an empty array
+board = []
+
+# EMPTY designates an empty field on the chessboard
+for i in range(8):
+    row = [EMPTY for i in range(8)]
+    board.append(row)
+```
+
+As list comprehensions can be _nested_, we can shorten the board creation in
+the following way:
+
+```py
+board  [[EMPTY for i in range(8)] for j in range(8)]
+```
+
+Access to the selected field of the board requires two indices;
+
+* the first selects the row
+* the second selects the field number inside the row (a column number)
+
+To find any element of a two-dimensional list, you have to use two coordinates:
+
+* a vertical one _(row number)_
+* a horizontal one _(column number)_
+
+For a _three-dimensional array_:
+
+```py
+'''
+A hotel consisting of 3 buildings, 15 floors each with 20 rooms on each floor
+'''
+
+rooms = [[[False for rooms in range(20)] for floors in range(15)] for buildings in range(3)]
+```
