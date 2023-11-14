@@ -161,7 +161,9 @@ Rules for naming variables in Python:
   and _underscore_
 * the name _must_ begin with a _letter_ or _underscore_
 * the name is _case-sensitive_
-* the name _must not_ be a _Python keyword_The above-listed rules also apply to _function names_.
+* the name _must not_ be a _Python keyword_
+
+The above-listed rules also apply to _function names_.
 
 **PEP 8 -- Style Guide for Python Code** naming convention for variables and
 functions:
@@ -461,3 +463,223 @@ Note:
 * `17 >> 1`
   * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
   * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
+
+### Section 4 - Lists
+
+Variables that are able to store exactly one given value are sometimes called
+_scalars_ by analogy with mathematics.
+
+The **List** is a _type of data_ in Python used to store multiple objects.
+It is _ordered_ and _mutable_. Lists _begin with an open square bracket `[`_,
+and _end with a closed square bracket `]`_, and the values in the brackets are
+separated by _commas `,`_ (`numbers = [1, 2, 3, 4, 5]`).
+
+The _elements_ (values) inside a list may have different types including lists.
+The elements in a list are always numbered starting from zero (0).
+
+The _value_ inside the brackets `numbers[0]` which selects one element of the
+list is called an _index_, while the _operation_ of selecting an element from
+the list is known as _indexing_.
+
+The `len()` function is used to check the _length_ of the list, that is how
+many elements are present in the list.
+
+```py
+print(len(numbers))  # Outputs the number of elements in the list
+```
+
+The `del` instruction is used to remove/delete elements from a list, or even
+the entire list.
+
+```py
+del numbers[1]  # Deletes the specified element from the list
+del numbers  # Deletes the entire list
+```
+
+Negative indices are legal.
+
+```py
+numbers[-1]  # The last element
+numbers[-2]  # The element before the last
+```
+
+A _method_ is a specific kind of function. It behaves like a function and looks
+like a function, but differs in the way in which it acts, and its invocation
+style. A method is able to change the state of a selected entity.
+
+A function doesn't belong to any data. It gets data, it may create new data and
+it (generally) produces a result.
+
+A method is owned by the data it works for, while a function is owned by the
+whole code.
+This means that invoking a method requires some specification of the data from
+which the method is invoked.
+
+```py
+result = function(arg)
+result = data.method(arg)
+```
+
+The `append()` method takes an argument and puts it at the end of the list.
+
+```py
+list.append(value)
+```
+
+The `insert()` method can add a new element at any place in the list.
+
+```py
+list.insert(location, values)
+```
+
+You can start a list's life by making it empty. This is done with an empty pair
+of square brackets.
+
+```py
+my_list = []
+```
+
+### Section 5 - Sorting simple lists: the bubble sort algorithm
+
+The _bubble sort algorithm_ compares two adjacent elements, and swaps them if
+the previous element is greater than the next element, thereby pushing
+(bubbling) the higher elements to the top.
+
+Python also has sufficient number of ready-to-use tools for sorting, one of
+them being the `sort()` method.
+
+```py
+my_list = [8, 10, 6, 2, 4]
+my_list.sort()
+
+print(my_list)
+```
+
+The method `reverse()` can reverse the elements of a list.
+
+```py
+my_list = [5, 3, 1, 2, 4]
+print(my_list)
+
+my_list.reverse()
+print(my_list)
+```
+
+### Section 6 - Operations on lists
+
+The name of an ordinary variable is the _name of its content_.
+The name of a list is the name of a _memory location where the list is stored_.
+
+```py
+list_1 = [1]
+
+#  The two names below identify the same location in the computer memory
+list_2 = list_1  # Copies the name of the array, not its contents
+list_1[0] = 2  # Modifying one affects the other, and vice versa
+
+print(list_2)  # Prints [2]
+```
+
+A _slice_ is an element of Python syntax that allows you to
+_make a brand new copy of a list, or parts of a list_.
+It copies the list's contents, not the list's name.
+
+```py
+list_1 = [1]
+list_2 = list_1[:]  # Copies all the contents of list_1
+list_1[0] = 2  # Modifying one doesn't affect the other
+
+print(list_2)  # Prints [1]
+```
+
+One of the most genaral forms of the slice looks like `my_list[start:end]`.
+
+* `start` is the index of the first element _included_ in the slice.
+* `end` is the index of the first element _not included_ in the slice.
+
+This creates a new list, taking elements from the `start` index to the
+`end - 1` index, not including the `end` index.
+_Negative values_ can also be used for both start and end index.
+
+If the `start` specifies an element lying further than the one described by the
+`end` (from the lists's beginning), the slice will be _empty_.
+
+If you omit the `start` in your slice, it is assumed that you want to get a
+slice beginning at the element with index `0`.
+
+`my_list[:end]` is equivalent to `my_list[0:end]`.
+
+If you omit the `end` in your slice, it is assumed that you want the slice to
+end at the element with the index `len(my_list)`.
+
+`my_list[start:]` is equivalent to `my_list[start:len(my_list)]`.
+
+The `del` instruction can delete slices too.
+
+The `in` operator checks if a given element (its left argument) is currently
+stored somewhere inside the list (the right argument), and returns `True` if
+that's the case.
+The `not in` operator checks if a given element (its left argument) is absent
+in a list (the right argument), and returns `True` if that's the case.
+
+### Section 7 - Lists in advanced applications
+
+**List Comprehension** is the special syntax used by Python in order to fill
+massive lists. It is created on-the-fly during program execution, and is not
+described statically.
+
+```py
+# List Comrehension syntax
+[expression for element in list if conditional]
+```
+
+```py
+# Filling the second row of the chessboard
+row = [WHITE_PAWN for i in range(8)]
+```
+
+The part of the code placed inside the square brackets specifies:
+
+* the data to be used to fill the list (`WHITE_PAWN`)
+* the clause specifying how many times the data occurs inside the list
+  (`for i in range(8)`)
+
+**Two-dimensional arrays _(matrices)_**: If we want to create a list of lists
+representing the whole chessboard, it may be done in the following way:
+
+```py
+# Creating an empty array
+board = []
+
+# EMPTY designates an empty field on the chessboard
+for i in range(8):
+    row = [EMPTY for i in range(8)]
+    board.append(row)
+```
+
+As list comprehensions can be _nested_, we can shorten the board creation in
+the following way:
+
+```py
+board  [[EMPTY for i in range(8)] for j in range(8)]
+```
+
+Access to the selected field of the board requires two indices;
+
+* the first selects the row
+* the second selects the field number inside the row (a column number)
+
+To find any element of a two-dimensional list, you have to use two coordinates:
+
+* a vertical one _(row number)_
+* a horizontal one _(column number)_
+
+For a _three-dimensional array_:
+
+```py
+'''
+A hotel consisting of 3 buildings, 15 floors each with 20 rooms on each floor
+'''
+
+rooms = [[[False for rooms in range(20)] for floors in range(15)] for buildings in range(3)]
+```
