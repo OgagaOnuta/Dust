@@ -253,6 +253,7 @@ while conditional_expression:
     .
     .
     instruction_n
+
 ```
 
 The loop body should be able to change the condition's value bacause doing
@@ -276,6 +277,7 @@ the conditions.
 for i in range(100):
     # do_something()
     pass  # an empty instruction
+
 ```
 
 Some things to note:
@@ -418,12 +420,14 @@ value or to change the selected bits.
         # My bit is set.
     else:
         # My bit is reset.
+    
     ```
 
 2. Reset your bit: you assign a `0` to your bit
 
     ```py
     flag_register &= ~the_mask
+    
     ```
 
 3. Set your bit: you assign a `1` to your bit
@@ -433,6 +437,7 @@ value or to change the selected bits.
     x | 0 = x
 
     flag_register |= the_mask
+    
     ```
 
 4. Negate your bit
@@ -442,6 +447,7 @@ value or to change the selected bits.
     x ^ 0 = x
 
     flag_register ^= the_mask
+    
     ```
 
 _Shifting_ applies to only _integer_ values.
@@ -486,6 +492,7 @@ many elements are present in the list.
 
 ```py
 print(len(numbers))  # Outputs the number of elements in the list
+
 ```
 
 The `del` instruction is used to remove/delete elements from a list, or even
@@ -494,6 +501,7 @@ the entire list.
 ```py
 del numbers[1]  # Deletes the specified element from the list
 del numbers  # Deletes the entire list
+
 ```
 
 Negative indices are legal.
@@ -501,6 +509,7 @@ Negative indices are legal.
 ```py
 numbers[-1]  # The last element
 numbers[-2]  # The element before the last
+
 ```
 
 A _method_ is a specific kind of function. It behaves like a function and looks
@@ -518,18 +527,21 @@ which the method is invoked.
 ```py
 result = function(arg)
 result = data.method(arg)
+
 ```
 
 The `append()` method takes an argument and puts it at the end of the list.
 
 ```py
 list.append(value)
+
 ```
 
 The `insert()` method can add a new element at any place in the list.
 
 ```py
 list.insert(location, values)
+
 ```
 
 You can start a list's life by making it empty. This is done with an empty pair
@@ -537,6 +549,7 @@ of square brackets.
 
 ```py
 my_list = []
+
 ```
 
 ### Section 5 - Sorting simple lists: the bubble sort algorithm
@@ -553,6 +566,7 @@ my_list = [8, 10, 6, 2, 4]
 my_list.sort()
 
 print(my_list)
+
 ```
 
 The method `reverse()` can reverse the elements of a list.
@@ -563,6 +577,7 @@ print(my_list)
 
 my_list.reverse()
 print(my_list)
+
 ```
 
 ### Section 6 - Operations on lists
@@ -578,6 +593,7 @@ list_2 = list_1  # Copies the name of the array, not its contents
 list_1[0] = 2  # Modifying one affects the other, and vice versa
 
 print(list_2)  # Prints [2]
+
 ```
 
 A _slice_ is an element of Python syntax that allows you to
@@ -590,6 +606,7 @@ list_2 = list_1[:]  # Copies all the contents of list_1
 list_1[0] = 2  # Modifying one doesn't affect the other
 
 print(list_2)  # Prints [1]
+
 ```
 
 One of the most genaral forms of the slice looks like `my_list[start:end]`.
@@ -631,11 +648,13 @@ described statically.
 ```py
 # List Comrehension syntax
 [expression for element in list if conditional]
+
 ```
 
 ```py
 # Filling the second row of the chessboard
 row = [WHITE_PAWN for i in range(8)]
+
 ```
 
 The part of the code placed inside the square brackets specifies:
@@ -655,6 +674,7 @@ board = []
 for i in range(8):
     row = [EMPTY for i in range(8)]
     board.append(row)
+
 ```
 
 As list comprehensions can be _nested_, we can shorten the board creation in
@@ -662,6 +682,7 @@ the following way:
 
 ```py
 board  [[EMPTY for i in range(8)] for j in range(8)]
+
 ```
 
 Access to the selected field of the board requires two indices;
@@ -682,4 +703,110 @@ A hotel consisting of 3 buildings, 15 floors each with 20 rooms on each floor
 '''
 
 rooms = [[[False for rooms in range(20)] for floors in range(15)] for buildings in range(3)]
+
 ```
+
+## Module 4. FUNCTIONS, TUPLES, DICTIONARIES, EXCEPTIONS, AND DATA PROCESSING
+
+### Section 1 - Functions
+
+A _function_ is a _block of code_ that performs a specific task when the
+function is called (invoked).
+Functions can have parameters and return values.
+
+When to write your own functions:
+
+* if a particular fragment of the code begins to appear in more than one place,
+  consider the possibility of isolating it in the form of a function
+* if a piece of code becomes so large that reading and understanding it may
+  cause a problem, consider dividing it into separate smaller problems, and
+  implementing each of them in the form of a separate function
+* if you're going to divide the work among multiple programmers, decompose the
+  problem to allow the product to be implemented as a set of separately written
+  functions packed together in different modules.
+
+Some say that a well-written function should be viewed entirely in one glance.
+
+A good, attentive developer _divides the problem_ into well-isolated pieces,
+and _encodes each of them in the form of a function_.
+
+_Decomposition_ describes encoding and testing each piece of code separately.
+Decomposition continues until you get a set of short functions, easy to
+understand and test.
+
+_Decomposition_ also involves _sharing the work and responsibility_ among
+_a team of developers_.
+
+In general, functions come from at least four places:
+
+* from Python itself _(built-in functions)_
+* from Python's _preinstalled modules_
+* directly from your code _(user-defined functions)_
+* the `lambda` functions
+
+You need to _define_ functions
+
+```py
+def function_name(optional_parameters):
+    function_body
+
+```
+
+* it always starts with the keyword `def` _(for define)_
+* next after `def` goes the _name of the function_ (the rules for nameing
+  functions are exactly the same as for naming variables)
+* after the function name, there's a pair of _parentheses_ `()`
+* the line has to be ended with a _colon_ `:`
+* the line directly after `def` begins the _function body_ - a couple (at least
+  one) of necessarily _nested instructions_, which will be executed every time
+  the function is invoked (_NOTE_: the function ends where the nesting ends)
+
+```py
+print("Enter a value: ")
+a = int(input())
+
+print("Enter a value: ")
+b = int(input())
+
+print("Enter a value: ")
+c = int(input())
+
+```
+
+The repeated code in the above snippet can be converted to a function as below:
+
+```py
+def message():
+    print("Enter a value: ")
+
+message()
+a = int(input())
+
+message()
+b = int(input())
+
+message()
+c = int(input())
+
+```
+
+Python reads the function's definitions and remembers them, but won't launch
+any of them without your permission.
+
+How functions work:
+
+* when you _invoke_ a function, Python remembers the place where it happened
+  and jumps into the invoked function
+* the body of the function is then _executed_
+* reaching the end of the function forces Python to _return_ to the place after
+  the point of invocation
+
+There are two, very important, catches:
+
+* You mustn't invoke a function which is not known at the moment of invocation.
+* You mustn't have a function and a variable of the same name.
+
+You're free to _mix your code with functions_, you're not obliged to put all
+your functions at the top of your source file.
+
+### Section 2 - How functions communicate with their environment
