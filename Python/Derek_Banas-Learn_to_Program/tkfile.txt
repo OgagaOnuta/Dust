@@ -1,0 +1,1 @@
+This is a sample file testing the text editor just created from the "Derek Banas - Learn to Program" Python course.
