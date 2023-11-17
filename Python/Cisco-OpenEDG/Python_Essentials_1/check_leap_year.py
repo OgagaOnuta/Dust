@@ -2,20 +2,20 @@
 A leap year: writing your own functions
 '''
 
-# CiscoEDG HINT
+# CiscoEDG Python Essentials 1 HINT
 
 def is_year_leap(year):
 	if (year % 4 != 0):
-		print("Common year")
+		print("Not divisible by 4", "Common year")
 		return (False)
 	elif (year % 100 != 0):
-		print("Leap year")
+		print("Not divisible by 100", "Leap year")
 		return (True)
 	elif (year % 400 != 0):
-		print("Common year")
+		print("Not divisible by 400", "Common year")
 		return (False)
 	else:
-		print("Leap year")
+		print("Divisible by 4, 100, and 400", "Leap year")
 		return (True)
 
 
