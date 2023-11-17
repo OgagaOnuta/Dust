@@ -681,7 +681,7 @@ As list comprehensions can be _nested_, we can shorten the board creation in
 the following way:
 
 ```py
-board  [[EMPTY for i in range(8)] for j in range(8)]
+board = [[EMPTY for i in range(8)] for j in range(8)]
 
 ```
 
@@ -810,3 +810,185 @@ You're free to _mix your code with functions_, you're not obliged to put all
 your functions at the top of your source file.
 
 ### Section 2 - How functions communicate with their environment
+
+A _parameter_ is a _variable_, but there are two important factors that make
+parameters different and special:
+
+* _parameters exist only inside functions in which they have been defined_,
+  and the only place where the parameter can be defined is a space between a
+  pair of parentheses in the `def` statement
+* _assigning a value to the parameter is done at the time of the function's_
+  _invocation_, by specifying the corresponding argument
+
+```py
+def function(parameter):
+    pass
+    
+```
+
+Don't forget:
+
+* _**parameters** live inside functions_ (this is their natural environment)
+* _**arguments** exist outside functions_, and are carriers of values passed to
+  corresponding parameters
+
+A value for the parameter will arrive from the function's environment.
+
+**Remember**: _specifying one or more parameters in a function's definition_ is
+also a requirement, and you have to fulfil it during invocation.You must
+_provide as many arguments as there are defined parameters_.
+
+It's legal, and possible, to have a _variable named the same as a function's_
+_parameter_.
+
+Shadowing:
+
+* parameter `x` shadows any variable of the same name, but...
+* ... only inside the function defining the parameter.
+
+A function can have _as many parameters as you want_, but the more parameters
+you have, the harder it is to memorize their roles and purposes.
+
+A technique which assigns the _ith_ (first, second, and so on) argument to the
+_ith_ (first, second, and so on) function parameter is called
+**positional parameter passing**, while arguments passed in this way are named
+**positional arguments**.
+
+```py
+def introduction(first_name, last_name):
+    print("Hello, my name is", first_name, last_name)
+
+introduction("David", "Onuta")
+
+```
+
+**Keyword argument passing** is where _the meaning of the argument is dictated_
+_by its name_, not by its position.
+
+```py
+def introduction(first_name, last_name):
+    print("Hello, my name is", first_name, last_name)
+
+# The two statements below both outputs: Hello, my name is David Onuta
+introduction(first_name = "David", last_name = "Onuta")
+introduction(last_name = "Onuta", first_name = "David")
+
+```
+
+You _mustn't use a non-existent parameter name_.
+
+You can mix both positional and keyword arguments, but you have to
+_put positional arguments before keyword arguments_.
+
+Parameters whose values are in use more often than others have their
+_default (predefined) values_ taken into consideration when their corresponding
+arguments have been omitted.
+
+```py
+def introduction(first_name, last_name="Smith"):
+    print("Hello, my name is", first_name, last_name)
+
+introduction("John", "Doe")  # Output: Hello, my name is John Doe
+introduction("Henry")  # Output: Hello, my name is Henry Smith
+introduction(first_name="William")  # Output: Hello, my name is William Smith
+
+```
+
+```py
+def introduction(first_name="John", last_name="Smith"):
+    print("Hello, my name is", first_name, last_name)
+
+# Valid invocations
+introduction()  # Output: Hello, my name is John Smith
+introduction(last_name="Hopkins")  # Output: Hello, my name is John Hopkins
+
+```
+
+### Section 3 - Returning a result from a function
+
+To get _functions to return a value_ (but not only for this purpose) you use
+the `return` instruction.
+The `return` instruction has _two different variants_.
+
+* `return` without an expression
+
+  ```py
+  def happy_new_year(wishes = True):
+      print("Three...")
+      print("Two...")
+      print("One...")
+
+      if (not wishes):
+          return
+
+      print("Happy New Year!")
+  
+  ```
+
+  If the `return` instruction is encountered, it will cause the termination
+  of the function.
+
+* `return` with an expression
+
+  ```py
+  def function():
+      return expression
+      
+  ```
+
+  ```py
+  def boring_function():
+      return 123
+
+  x = boring_function()
+
+  print("The boring_function has returned its result. It's:", x)
+
+  ```
+
+  There are two consequences of using it:
+
+  * it causes the _immediate termination of the function's execution_
+  * the function will _evaluate the expression's value and will return it_
+    _as the function's result_
+
+Don't forget:
+
+* you are always _allowed to ignore the function's result_, and be satisfied
+  with the function's effect (if any)
+* if a function is intended to return a useful result, it must contain the
+  second variant
+
+`None`: its data doesn't represent any reasonable value, it's not a value at
+all; hence, it _mustn't take part in any expressions_.
+`None` is a **keyword**.
+
+There are only two kinds of circumstances when `None` can be safely used:
+
+* when you _assign it to a variable_ (or return it as a _function's result_)
+* when you _compare it with a variable_ to diagnose its internal state.
+
+```py
+value = None
+
+if (value is None):
+    print("Sorry, you don't carry any value")
+
+```
+
+If a function doesn't return a certain value using a `return` expression
+clause, it is assumed that it _implicitly returns `None`_.
+
+```py
+def strange_function(n):
+    if (n % 2 == 0):
+        return (True)
+
+print(strange_function(2))  # returns: True
+print(strange_function(1))  # returns: None
+
+```
+
+Any entity recognizable by Python can play the role of a _function argument_,
+although it has to be assured that the function is able to cope with it.
+Any entity recognizable by Python can be a _function result_.
