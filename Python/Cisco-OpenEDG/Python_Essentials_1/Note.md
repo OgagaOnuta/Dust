@@ -992,3 +992,5 @@ print(strange_function(1))  # returns: None
 Any entity recognizable by Python can play the role of a _function argument_,
 although it has to be assured that the function is able to cope with it.
 Any entity recognizable by Python can be a _function result_.
+
+### Section 4 - Scopes in Python
