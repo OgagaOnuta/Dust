@@ -16,15 +16,19 @@ def is_year_leap(year):
 			# Check if divisible by 400
 			if (year % 400 == 0):
 				print("Year is divisible by 400")
+				print("LEAP YEAR")
 				return (True)
 			else:
 				print("Year is divisible by 4, 100, but not 400")
+				print("COMMON YEAR")
 				return (False)
 		else:
 			print("Year is not divisible by 100")
+			print("LEAR YEAR")
 			return (True)
 	else:
 		print("Year is not divisible by 4")
+		print("COMMON YEAR")
 		return (False)
 
 
