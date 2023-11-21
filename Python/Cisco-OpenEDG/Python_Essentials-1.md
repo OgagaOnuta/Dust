@@ -609,7 +609,7 @@ print(list_2)  # Prints [1]
 
 ```
 
-One of the most genaral forms of the slice looks like `my_list[start:end]`.
+One of the most general forms of the slice looks like `my_list[start:end]`.
 
 * `start` is the index of the first element _included_ in the slice.
 * `end` is the index of the first element _not included_ in the slice.
@@ -646,7 +646,7 @@ massive lists. It is created on-the-fly during program execution, and is not
 described statically.
 
 ```py
-# List Comrehension syntax
+# List Comprehension syntax
 [expression for element in list if conditional]
 
 ```
@@ -740,7 +740,7 @@ _a team of developers_.
 In general, functions come from at least four places:
 
 * from Python itself _(built-in functions)_
-* from Python's _preinstalled modules_
+* from Python's _pre-installed modules_
 * directly from your code _(user-defined functions)_
 * the `lambda` functions
 
@@ -994,3 +994,110 @@ although it has to be assured that the function is able to cope with it.
 Any entity recognizable by Python can be a _function result_.
 
 ### Section 4 - Scopes in Python
+
+_The **scope of a name** (e.g., a variable name) is the part of a code where_
+_the name is properly recognizable_.
+
+```py
+def scope_test():
+    x = 123
+    
+    
+scope_test()
+print(x)
+
+# Output:
+# ERROR
+
+```
+
+```py
+def my_function():
+    print("Do I know that variable?", var)
+    
+    
+var = 1
+
+my_function()
+print(var)
+
+# Output:
+# Do I know that variable? 1
+# 1
+
+```
+
+A variable _existing inside_ a function has _scope_ inside the function body.
+A variable _existing outside_ a function has _scope_ inside the function's
+body, _excluding_ those which define a _variable of the same name_.
+It also means that the _scope of a variable existing outside a function is_
+_supported only when getting its value (reading)_.
+
+Assigning a value forces the creation of the function's own variable.
+
+```py
+def my_function():
+    var = 2
+
+    print("Do I know that variable?", var)
+    
+    
+var = 1
+
+my_function()
+print(var)
+
+# Output:
+# Do I know that variable? 2
+# 1
+
+```
+
+There's a special Python method which can _extend a variable's scope in a way_
+_which includes the function's body_ (even if you want not only to read the
+values, but also to modify them).
+Such an effect is caused by a keyword named `global`.
+
+```py
+global name
+global name1, name2, ...
+
+```
+
+Using this keyword inside a function with the name (or names separated with
+commas) of a variable (or variables), forces Python to refrain from creating
+a new variable inside the function - the one accessible from outside will be
+used instead.
+
+In other words, this name becomes _global_ (it has _global scope_, and it
+doesn't matter whether it's the subject of read or assign).
+
+```py
+def my_function():
+    global var
+    var = 2
+    
+    print("Do I know that variable?", var)
+
+
+var = 1
+
+my_function()
+print(var)
+
+# Output:
+# Do I know that variable? 2
+# 2
+
+```
+
+_Changing the parameter's value doesn't propagate outside the function_.
+
+A function receives the _argument's value_, not the argument itself (for
+scalars).
+
+If the argument is a list, then changing the value of the corresponding
+parameter doesn't affect the list, but if you change a list identified by the
+parameter, the list will reflect the change.
+
+### Section 5 - Creating multi-parameter functions
