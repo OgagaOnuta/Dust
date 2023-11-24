@@ -1381,3 +1381,150 @@ french_eng_dict = dictionary.copy()
 ```
 
 ### Section 7 - Exceptions
+
+> To err is human.
+>
+> It's only those who do nothing that make no mistakes.
+
+Dealing with programming errors has (at least) two sides:
+
+* bad data
+* bug in code
+
+In Python, there is a distinction between two kinds of errors:
+
+* _syntax errors (parsing errors)_: occurs when the parser comes across an
+  incorrect statement
+* _exceptions_: detected during execution, and occurs even when a statement
+  / expression is syntactically correct
+
+The `try-except` branch:
+
+```py
+try:
+    # It's a place where
+    # you can do something
+    # without asking for permission.
+except:
+    # It's a spot dedicated to
+    # solemnly begging for forgiveness.
+
+```
+
+First, starting with the `try` keyword - this is the place where you put the
+code you suspect is risky and may be terminated in case of error (exception).
+
+Second, starting with the `except` keyword - this is designed to handle the
+exception.
+
+```py
+try:
+    value = int(input("Enter a natural number: "))
+    print("The reciprocal of", value, "is", (1/value))
+except:  # except (Exception)
+    print("I do not know what to do.")
+
+```
+
+The code in the `except` branch is activated only when an exception has been
+encountered (_raised_) inside the `try` block. There is no way to get there by
+any other means.
+
+When either the `try` or `except` block is executed successfully, the control
+returns to the normal path of execution, and any code located beyond in the
+source file is executed as if nothing happened.
+
+To deal with more than one exception, we include another `except` branch. The
+number of `except` branches is not limited - you can specify as many or as few
+of them as you need, but don't forget that _none of the exceptions can be_
+_specified more then once_.
+
+```py
+try:
+    value = int(input("Enter a natural number: "))
+    print("The reciprocal of", value, "is", (1/value))
+except (ValueError):
+    print("I do not know what to do.")
+except (ZeroDivisionError):
+    print("Division by zero is not allowed in our Universe.")
+
+```
+
+_If one of the `except` branches is executed, all the other branches remain_
+_idle._
+
+When an exception is raised and there is no `except` branch dedicated to this
+exception, it will be handled by the _default branch (no exception name_
+_specified)_. The default `except` branch _must_ be the last `except` branch.
+
+```py
+try:
+    value = int(input("Enter a natural number: "))
+    print("The reciprocal of", value, "is", (1/value))
+except (ValueError):
+    print("I do not know what to do.")
+except (ZeroDivisionError):
+    print("Division by zero is not allowed in our Universe.")
+except:  # except (Exception)
+    print("Something strange has happened here... Sorry!")
+
+```
+
+You can also specify and handle multiple built-in exceptions within a single
+`except` clause:
+
+```py
+try:
+    value = int(input("Enter a natural number: "))
+    print("The reciprocal of", value, "is", (1/value))
+except (ValueError, ZeroDivisionError):
+    print("Wrong value or No division by zero rule broken.")
+except:  # except (Exception)
+    print("Something strange has happened here... Sorry!")
+
+```
+
+It is a bad idea to handle the _SyntaxError_ exception in your programs, as you
+should produce code that is free of syntax errors, instead of masking it.
+
+As you are not able to avoid making bugs in your code, you must always be ready
+to seek out and destroy them. Don't bury your head in the sand - _ignoring_
+_errors won't make them disappear_.
+
+An important duty for developers is to test the newly created code. Another
+important aspect of software testing is strictly psychological, that authors
+_aren't able to objectively evaluate and verify their works_.
+
+This is why each _novelist_ needs an _editor_ and each _programmer_ needs a
+_tester_.
+
+Your primary duty is to _ensure that you've checked all execution paths_ your
+code can go through.
+
+You need to accept that, firstly, _testers_ are the _developer's_ best
+friends - don't treat the bugs they discover as an offence or a malignancy;
+and, secondly, each bug the testers find is a bug that won't affect the users.
+
+A _debugger_ is the basic measure a developer can use against bugs.
+
+_Debugging_ is the process during which bugs are removed from the code.
+
+A _debugger_ is a specialized piece of software that can control how your
+program is executed.
+
+_print_ debugging involves inserting several additional `print()` invocations
+inside your code to output data which illustrates the path your code is
+currently negotiating.
+Please don't use obscene or indecent words for this purpose.
+After the bugs are found and removed, the additional printouts may be
+commented out or removed. Don't let them be executed in the final code.
+
+Don't believe yourself - check everything twice. Here are some useful tips:
+
+1. Try to tell someone (or a _rubber duck_) what your code is expected to do
+   and how it actually behaves.
+2. Try to isolate the problem.
+3. Analyze all the changes you've introduced into your code (if it didn't show
+   up earlier)
+4. Take a break.
+5. Be optimistic.
