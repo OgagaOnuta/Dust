@@ -22,12 +22,12 @@ There are two different ways of transforming a program from a high-level
 programming language into a machine language:
 
 1. _Compilation_ - the source program is translated once by getting a file
-containing the machine code. The program that performs this translation is
-called a _compiler_ or _translator_. The file can then be distributed as is.
+   containing the machine code. The program that performs this translation is
+   called a _compiler_ or _translator_. The file can then be distributed as is.
 2. _Interpretation_ - the source program can be translated each time it has
-to be run. The program performing this kind of transformation is called an
-_interpreter_. The file needs to be distributed with the interpreter.
-Each line is executed separately, _read-check-execute_.
+   to be run. The program performing this kind of transformation is called an
+   _interpreter_. The file needs to be distributed with the interpreter. Each
+   line is executed separately, _read-check-execute_.
 
 **Python** is an _interpreted_ language.
 Interpreted languages are often called _scripting languages_, while the source
@@ -133,7 +133,7 @@ Below is a list of operators in Python:
 Most of Python's operators have left-sided binding meaning that calculations
 are conducted from left to right.
 An exception is _the exponentiation operator which uses right-sided binding_.
-_Subexpressions in parentheses_ are always calculated first.
+_Sub-expressions in parentheses_ are always calculated first.
 
 The Hierarchy of Priorities (from highest to lowest)
 
@@ -256,7 +256,7 @@ while conditional_expression:
 
 ```
 
-The loop body should be able to change the condition's value bacause doing
+The loop body should be able to change the condition's value because doing
 a thing usually decreases the number of things to do, and also prevent an
 _infinite loop_.
 
@@ -290,11 +290,11 @@ Some things to note:
 The `range()` function syntax:
 
 * `range(stop)`
-  * stop: up to but not including the stop value
+    * stop: up to but not including the stop value
 * `range(start, stop)`
-  * start: the starting value with the default value of `0`
+    * start: the starting value with the default value of `0`
 * `range(start, stop, step)`
-  * step: the value added after every iteration with the default of `1`
+    * step: the value added after every iteration with the default of `1`
 * The set generated has to be sorted in ascending order.
 
 Additions which don't improve the language's expressive power, but only
@@ -356,9 +356,9 @@ _logical negation_. Its _priority is very high_, the same as the unary
 **De Morgan's laws**:
 
 * _The **negation** of a **conjunction** is the **disjunction of the negations**._
-  * `not (p and q) == (not p) or (not q)`
+    * `not (p and q) == (not p) or (not q)`
 * _The **negation** of a **disjunction** is the **conjunction of the negations**._
-  * `not (p or q) == (not p) and (not q)`
+    * `not (p or q) == (not p) and (not q)`
 
 _None_ of these _logical operators_ can be used as _compound assignment operators_.
 
@@ -374,12 +374,12 @@ _Bitwise operators_ allow you to _manipulate single bits of data_.
 The arguments of these operators _must be integers_.
 
 * `&` (ampersand) - _bitwise conjunction_
-  * requires exactly two `1`s to provide `1` as the result
+    * requires exactly two `1`s to provide `1` as the result
 * `|` (bar) - _bitwise disjunction_
-  * requires at least one `1` to provide `1` as the result
+    * requires at least one `1` to provide `1` as the result
 * `~` (tilde) - _bitwise negation_ (`~x` is usually `-x - 1` for _signed numbers_)
 * `^` (caret) - _bitwise exclusive or (xor)_
-  * requires exactly one `1` to provide `1` as the result
+    * requires exactly one `1` to provide `1` as the result
 
 | Argument `A` | Argument `B` | `A & B` | `A \| B` | `A ^ B` |
 | - | - | - | - | - |
@@ -420,7 +420,7 @@ value or to change the selected bits.
         # My bit is set.
     else:
         # My bit is reset.
-    
+
     ```
 
 2. Reset your bit: you assign a `0` to your bit
@@ -453,9 +453,9 @@ value or to change the selected bits.
 _Shifting_ applies to only _integer_ values.
 
 * _Shifting_ a value one bit to the left corresponds to multiplying it by two.
-  * `<<` represents _left shift_ (`value << bits`).
+    * `<<` represents _left shift_ (`value << bits`).
 * _Shifting_ a value one bit to the right corresponds to dividing it by two.
-  * `>>` represents _right shift_ (`value >> bits`).
+    * `>>` represents _right shift_ (`value >> bits`).
 
 The left argument is an integer value whose bits are shifted.
 The right argument determines the size of the shift.
@@ -464,11 +464,11 @@ The priority of these operators is very high.
 Note:
 
 * `17 << 2`
-  * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
-  * -> `68` (shifting to the left by `2` bits is the same as integer multiplication by `4`)
+    * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
+    * -> `68` (shifting to the left by `2` bits is the same as integer multiplication by `4`)
 * `17 >> 1`
-  * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
-  * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
+    * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
+    * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
 
 ### Section 4 - Lists
 
@@ -479,6 +479,8 @@ The **List** is a _type of data_ in Python used to store multiple objects.
 It is _ordered_ and _mutable_. Lists _begin with an open square bracket `[`_,
 and _end with a closed square bracket `]`_, and the values in the brackets are
 separated by _commas `,`_ (`numbers = [1, 2, 3, 4, 5]`).
+
+You can also create a list using a Python built-in function called `list()`.
 
 The _elements_ (values) inside a list may have different types including lists.
 The elements in a list are always numbered starting from zero (0).
@@ -753,7 +755,7 @@ def function_name(optional_parameters):
 ```
 
 * it always starts with the keyword `def` _(for define)_
-* next after `def` goes the _name of the function_ (the rules for nameing
+* next after `def` goes the _name of the function_ (the rules for naming
   functions are exactly the same as for naming variables)
 * after the function name, there's a pair of _parentheses_ `()`
 * the line has to be ended with a _colon_ `:`
@@ -912,17 +914,17 @@ The `return` instruction has _two different variants_.
 
 * `return` without an expression
 
-  ```py
-  def happy_new_year(wishes = True):
-      print("Three...")
-      print("Two...")
-      print("One...")
+    ```py
+    def happy_new_year(wishes = True):
+        print("Three...")
+        print("Two...")
+        print("One...")
 
-      if (not wishes):
-          return
+        if (not wishes):
+            return
 
-      print("Happy New Year!")
-  
+        print("Happy New Year!")
+
   ```
 
   If the `return` instruction is encountered, it will cause the termination
@@ -930,26 +932,26 @@ The `return` instruction has _two different variants_.
 
 * `return` with an expression
 
-  ```py
-  def function():
-      return expression
-      
-  ```
+    ```py
+    def function():
+        return expression
+        
+    ```
 
-  ```py
-  def boring_function():
-      return 123
+    ```py
+    def boring_function():
+        return 123
 
-  x = boring_function()
+    x = boring_function()
 
-  print("The boring_function has returned its result. It's:", x)
+    print("The boring_function has returned its result. It's:", x)
 
-  ```
+    ```
 
-  There are two consequences of using it:
+    There are two consequences of using it:
 
-  * it causes the _immediate termination of the function's execution_
-  * the function will _evaluate the expression's value and will return it_
+    * it causes the _immediate termination of the function's execution_
+    * the function will _evaluate the expression's value and will return it_
     _as the function's result_
 
 Don't forget:
@@ -1091,7 +1093,7 @@ print(var)
 
 ```
 
-_Changing the parameter's value doesn't propagate outside the function_.
+_Changing the parameter's value doesn't extend outside the function_.
 
 A function receives the _argument's value_, not the argument itself (for
 scalars).
@@ -1101,3 +1103,281 @@ parameter doesn't affect the list, but if you change a list identified by the
 parameter, the list will reflect the change.
 
 ### Section 5 - Creating multi-parameter functions
+
+It's worth checking if our parameters are always meaningful.
+
+_Recursion_ is a technique where a function invokes itself.
+
+A _Recursive Function_ is a function which calls itself and contains a
+specified termination condition (i.e., _the base case_).
+
+**NOTE:** If you forget to consider the conditions which can stop the chain of
+recursive invocations, the program may enter an infinite loop.
+
+Recursive calls consume a lot of memory, and may sometimes be inefficient.
+
+### Section 6 - Tuples and dictionaries
+
+A _**Sequence Type** is a type of data in Python which is able to store more_
+_than one value (or less than one, as a sequence may be empty) and these_
+_values can be sequentially (hence the name) browsed, element by element._
+
+A _sequence_ is data which can be scanned by the `for` loop.
+
+_**Mutability** is a property of any Python data that describes its readiness_
+_to be freely changed during program execution._
+
+There are two kinds of Python data:
+
+* mutable _(data can be freely updated at any time)_
+* immutable _(data cannot be modified)_
+
+_In situ_ is a _Latin phrase_ that translates as _literally in position_.
+
+A _Tuple_ is an _immutable sequence type_. It can behave like a list, but it
+can't be modified in situ. Tuples are _ordered and unchangeable_ collections
+of data.
+
+Tuples use _parenthesis_ in creation, whereas a List uses _square brackets_.
+It is also possible to _create a tuple just from a set of values separated by_
+_commas_.
+
+You can also create a tuple using a Python built-in function called `tuple()`.
+
+Tuples can be unpacked into variables using the assignment operator.
+
+```py
+tup = 1, 2, 3
+a, b, c = tup
+# a = 1, b = 2, c = 3
+
+```
+
+```py
+tuple_1 = (1, 2, 4, 8)
+tuple_2 = 1., .5, .25, .125
+tuple_3 = tuple([2, 4, 6])
+
+print(tuple_1)
+print(tuple_2)
+print(tuple_3)
+
+```
+
+_Note:_ each tuple element may be of a different type, including variables.
+
+It is possible to create an empty tuple using only parentheses.
+
+```py
+empty_tuple = ()
+
+```
+
+If you want to create a _one-element tuple_, you must end the value with a
+comma.
+
+```py
+one_element_tuple_1 = (1, )
+one_element_tuple_2 = 1.,
+
+```
+
+You cannot change Tuple elements, but you can delete a tuple as a whole.
+
+```py
+my_tuple = (1, 2.0, "string", [3, 4], (5,), True)
+
+del my_tuple
+print(my_tuple)  # ERROR
+
+```
+
+You can access tuple elements the same way you would read lists, using
+_indices_, _slices_, and even the _`for` loop_.
+
+What else can tuples do?
+
+* the `len()` function accepts tuples and returns the number of elements
+* the `+` operator can join tuples together
+* the `*` operator can multiply tuples, just like lists
+* the `in` and `not in` operators work in the same way as in lists
+
+```py
+my_tuple = (1, 10, 100)
+t1 = my_tuple + (1000, 10000)
+t2 = my_tuple * 3
+
+print(len(t2))  # 9
+print(t1)  # (1, 10, 100, 1000, 10000)
+print(t2)  # (1, 10, 100, 1, 10, 100, 1, 10, 100)
+print(10 in my_tuple)  # True
+print(-10 not in my_tuple)  # True
+
+```
+
+One of the most useful tuple properties is their ability to _appear on the_
+_left side of the assignment operator_.
+
+```py
+var = 123
+t1 = (1,)
+t2 = (2,)
+t3 = (3, var)
+
+t1, t2, t3 = t2, t3, t1
+
+print(t1, t2, t3)  # Output: (2,) (3, 123) (1,)
+
+```
+
+The _dictionary_ is another Python data structure. It's _not a sequence type_
+(but can be easily adapted to sequence processing), and it is _mutable_.
+
+A _dictionary_ is a set of _key:value_ pairs.
+
+_Note:_
+
+* each _key_ must be unique
+* a _key_ may be _any immutable type of object_
+* a _dictionary_ is not a list - a list contains a set of numbered values,
+  while a dictionary holds pairs of values
+* the `len()` function works for dictionaries, too - it returns the number of
+  key:value elements in the dictionary
+* a _dictionary_ is a _one-way tool_ - if you have an English-French
+  dictionary, you can look for French equivalents of English terms, but not
+  vice versa
+
+The list of pairs is _surrounded by curly braces {}_, while the pairs
+themselves are _separated by commas_, and the _keys and values by colons_.
+
+You can also create a dictionary using a Python built-in function called
+`dict()` (used with tuples).
+
+The dictionary as a whole can be printed with a single `print()` invocation.
+
+```py
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+phone_numbers = {'boss': 5551234567, 'Suzy': 22657854310}
+empty_dictionary = {}
+
+print(dictionary)
+print(phone_numbers)
+print(empty_dictionary)
+
+```
+
+The _key:value_ pairs can also be _number:string_, as well as _number:number_.
+A dictionary value can be a tuple.
+
+If you want to get any of the values, you have to deliver a valid key value.
+You _must not use a non-existing key_.
+
+```py
+print(dictionary['cat'])  # chat
+print(phone_numbers.get("Suzy"))  # 22657854310
+print(phone_numbers['president'])  # ERROR
+
+```
+
+_Keys are case-sensitive_.
+
+**NOTE:** When you write a big or lengthy expression, it may be a good idea to
+keep it vertically aligned.
+
+The formatting below is called a _hanging indent_.
+
+```py
+dictionary = {
+              "cat": "chat",
+              "dog": "chien",
+              "horse", "cheval"
+}
+
+```
+
+The dictionary `keys()` method _returns an iterable object consisting of all_
+_the keys gathered within the dictionary_.
+
+```py
+for key in dictionary.keys():
+    print(key, "->", dictionary[key])
+
+```
+
+The dictionary `values()` method works similarly to `keys()`, but _returns_
+_values_.
+As the dictionary is not able to automatically find a key for a given value,
+the role of this method is rather limited.
+
+```py
+for french in dictionary.values():
+    print(french)
+
+```
+
+The dictionary `items()` method _returns tuples where each tuple is a_
+_key:value pair_.
+
+```py
+for english, french in dictionary.items():
+    print(english, "->", french)
+
+```
+
+To _add a new key:value pair_ to a dictionary, you only have to assign a value
+to a new, _previously non-existing key_.
+
+```py
+dictionary["swan"] = "cygne"
+
+```
+
+You can also _insert_ an item to a dictionary by using the `update()` method.
+
+```py
+dictionary.update({"duck": "canard"})
+
+```
+
+_Removing a key_ from a dictionary will always cause the _removal of the_
+_associated value_. Values cannot exist without their keys. This is done with
+the `del` instruction. You can also delete a dictionary with this instruction.
+
+_Note: removing a non-existing key causes an error._
+
+```py
+del dictionary["dog"]
+del dictionary
+
+```
+
+To _remove the last item_ in a dictionary, you can use the `popitem()` method.
+In the older versions of Python, i.e., before _3.6.7_, the `popitem()` method
+removes a random item from a dictionary.
+
+```py
+dictionary.popitem()
+
+```
+
+To _remove all the dictionary's items_, you can use the `clear()` method.
+
+```py
+dictionary.clear()
+
+```
+
+To _copy_ a dictionary, use the `copy()` method.
+
+```py
+dictionary = {
+              "cat": "chat",
+              "dog": "chien",
+              "horse", "cheval"
+}
+
+french_eng_dict = dictionary.copy()
+
+```
+
+### Section 7 - Exceptions
