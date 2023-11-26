@@ -51,20 +51,19 @@ def enter_move(board):
 	try:
 		# Get user entry
 		user_entry = int(input("Enter your move: "))
-						# Check user entry
+
+		# Check user entry
 		if ((user_entry <= 0) or (user_entry >= 10)
 			or (type(user_entry) is not int)):
-			print("\nENTER FIELD NOT OCCUPIED\n")
+			print("\nENTER AVAILABLE NUMBER (1 - 9)\n")
 
 		# Update board
 		for row in range(len(board)):
 			for col in range(len(board[row])):
 				if (board[row][col] == user_entry):
 					board[row][col] = user_move
-					return (True)
 	except (ValueError):
-		print("\nENTER NUMBER BETWEEN 1 AND 9\n")
-		return (False)
+		print("\nENTER AVAILABLE NUMBER (1 - 9)\n")
 
 
 def make_list_of_free_fields(board):
@@ -111,8 +110,6 @@ def victory_for(board, sign):
 	elif ((board[0][2] == sign) and (board[1][1] == sign)
 	   	and (board[2][0] == sign)):
 		return (True)
-	else:
-		return (False)
 
 
 def draw_move(board):
@@ -120,7 +117,9 @@ def draw_move(board):
 
 	while (True):
 		# Draw computer move
-		comp_entry = randrange(1, 9)
+		comp_entry = randrange(1, 10)
+
+		# Variable to check if field is empty
 		empty = False
 
 		# Check if field is empty
@@ -141,17 +140,31 @@ def draw_move(board):
 
 while (True):
 	display_board(board)
-	if (enter_move(board)):
-		display_board(board)
+	# print("INITIAL DISPLAY")
+
+	enter_move(board)
+	display_board(board)
+	# print("USER MOVE DISPLAY")
+
+	make_list_of_free_fields(board)
+	if (len(free_fields) % 2 != 0):
 		draw_move(board)
-	if (victory_for(board, "O")):
+
+	make_list_of_free_fields(board)
+	if ((victory_for(board, "O") is None or victory_for(board, "X") is None)
+	 	and (len(free_fields) <= 1)):
+		display_board(board)
+		print("IT'S A TIE")
+		break
+
+	elif (victory_for(board, "O")):
+		display_board(board)
+		# print("VICTORY FOR USER DISPLAY")
 		print("You won!")
 		break
+
 	elif (victory_for(board, "X")):
+		display_board(board)
+		# print("VICTORY FOR COMPUTER DISPLAY")
 		print("Computer wins!")
 		break
-	else:
-		make_list_of_free_fields(board)
-		if (len(free_fields) <= 1):
-			print("IT'S A TIE")
-			break
