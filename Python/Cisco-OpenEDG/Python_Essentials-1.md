@@ -137,8 +137,8 @@ _Sub-expressions in parentheses_ are always calculated first.
 
 The Hierarchy of Priorities (from highest to lowest)
 
-| Priority | Operator | |
-| - | - | - |
+| Priority | Operator |     |
+| :------: | :------: | :-: |
 | 1 | `~`, `+`, `-` | unary |
 | 2 | `**` | |
 | 3 | `*`, `/`, `//`, `%` | |
@@ -326,30 +326,30 @@ The `and` (_conjunction operator_) is a _binary operator_ with a
 _priority that is lower_ than the one expressed by the _comparison operators_.
 
 | Argument `A` | Argument `B` | `A and B` |
-| - | - | - |
-| False | False | False |
-| False | True | False |
-| True | False | False |
-| True | True | True |
+| :----------: | :----------: | :-------: |
+| False        | False        | False     |
+| False        | True         | False     |
+| True         | False        | False     |
+| True         | True         | True      |
 
 The `or` (_disjunction operator_)  is a _binary operator_ with a
 _lower priority than `and`_.
 
 | Argument `A` | Argument `B` | `A or B` |
-| - | - | - |
-| False | False | False |
-| False | True | True |
-| True | False | True |
-| True | True | True |
+| :----------: | :----------: | :------: |
+| False        | False        | False    |
+| False        | True         | True     |
+| True         | False        | True     |
+| True         | True         | True     |
 
 The `not` (_negation operator_) is a _unary operator_ performing a
 _logical negation_. Its _priority is very high_, the same as the unary
 `+` and `-`.
 
 | Argument | `not` Argument |
-| - | - |
-| False | True |
-| True | False |
+| :------: | :------------: |
+| False    | True           |
+| True     | False          |
 
 `and`, `or`, and `not` are called _logical operators_.
 
@@ -382,16 +382,16 @@ The arguments of these operators _must be integers_.
     * requires exactly one `1` to provide `1` as the result
 
 | Argument `A` | Argument `B` | `A & B` | `A \| B` | `A ^ B` |
-| - | - | - | - | - |
-| `0` | `0` | `0` | `0` | `0` |
-| `0` | `1` | `0` | `1` | `1` |
-| `1` | `0` | `0` | `1` | `1` |
-| `1` | `1` | `1` | `1` | `0` |
+| :----------: | :----------: | :-----: | :------: | :-----: |
+| `0`          | `0`          | `0`     | `0`      | `0`     |
+| `0`          | `1`          | `0`     | `1`      | `1`     |
+| `1`          | `0`          | `0`     | `1`      | `1`     |
+| `1`          | `1`          | `1`     | `1`      | `0`     |
 
 | Argument | `~` Argument |
-| - | - |
-| `0` | `1` |
-| `1` | `0` |
+| :------: | :----------: |
+| `0`      | `1`          |
+| `1`      | `0`          |
 
 Each of these _two-argument bitwise operators_ can be used as _compound operators_.
 
