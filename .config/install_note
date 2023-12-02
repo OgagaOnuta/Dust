@@ -11,6 +11,9 @@ Tkinter
 => sudo apt-get install python3-tk
 => python3 -m tkinter (to verify installation)
 
+PIL (pillow)
+=> pip install pillow
+
 Adding directory to PATH
 => open the .bashrc file
 => paste the export syntax at the end of the file
