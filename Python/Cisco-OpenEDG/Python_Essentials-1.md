@@ -260,10 +260,9 @@ The loop body should be able to change the condition's value because doing
 a thing usually decreases the number of things to do, and also prevent an
 _infinite loop_.
 
-**REMEMBER**
-Don't feel obliged to code your programs in the shortest and most compact way.
-_Readability_ may be a more important factor.
-Keep your code ready for a new programmer.
+> **REMEMBER:** Don't feel obliged to code your programs in the shortest and
+> most compact way. _Readability_ may be a more important factor. Keep your
+> code ready for a new programmer.
 
 You can use _triple quotes (''' OR """) to print strings on multiple lines in
 order to make text easier to read, or create a special text-based design.
@@ -461,14 +460,16 @@ The left argument is an integer value whose bits are shifted.
 The right argument determines the size of the shift.
 The priority of these operators is very high.
 
-Note:
-
-* `17 << 2`
-    * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
-    * -> `68` (shifting to the left by `2` bits is the same as integer multiplication by `4`)
-* `17 >> 1`
-    * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
-    * -> `8` (shifting to the right by `1` bit is the same as integer division by `2`)
+> Note:
+>
+> * `17 << 2`
+>     * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
+>     * -> `68` (shifting to the left by `2` bits is the same as integer
+>     multiplication by `4`)
+> * `17 >> 1`
+>     * -> `17 // 2` (`17` floor-divided by `2` to the power of `1`)
+>     * -> `8` (shifting to the right by `1` bit is the same as integer
+>     division by `2`)
 
 ### Section 4 - Lists
 
@@ -836,9 +837,9 @@ Don't forget:
 
 A value for the parameter will arrive from the function's environment.
 
-**Remember**: _specifying one or more parameters in a function's definition_ is
-also a requirement, and you have to fulfil it during invocation.You must
-_provide as many arguments as there are defined parameters_.
+> **Remember:** _specifying one or more parameters in a function's definition_
+> is also a requirement, and you have to fulfil it during invocation.You must
+> _provide as many arguments as there are defined parameters_.
 
 It's legal, and possible, to have a _variable named the same as a function's_
 _parameter_.
@@ -954,12 +955,12 @@ The `return` instruction has _two different variants_.
     * the function will _evaluate the expression's value and will return it_
     _as the function's result_
 
-Don't forget:
-
-* you are always _allowed to ignore the function's result_, and be satisfied
-  with the function's effect (if any)
-* if a function is intended to return a useful result, it must contain the
-  second variant
+> Don't forget:
+>
+> * you are always _allowed to ignore the function's result_, and be satisfied
+>   with the function's effect (if any)
+> * if a function is intended to return a useful result, it must contain the
+>   second variant
 
 `None`: its data doesn't represent any reasonable value, it's not a value at
 all; hence, it _mustn't take part in any expressions_.
@@ -1111,8 +1112,8 @@ _Recursion_ is a technique where a function invokes itself.
 A _Recursive Function_ is a function which calls itself and contains a
 specified termination condition (i.e., _the base case_).
 
-**NOTE:** If you forget to consider the conditions which can stop the chain of
-recursive invocations, the program may enter an infinite loop.
+> **NOTE:** If you forget to consider the conditions which can stop the chain
+> of recursive invocations, the program may enter an infinite loop.
 
 Recursive calls consume a lot of memory, and may sometimes be inefficient.
 
@@ -1132,7 +1133,7 @@ There are two kinds of Python data:
 * mutable _(data can be freely updated at any time)_
 * immutable _(data cannot be modified)_
 
-_In situ_ is a _Latin phrase_ that translates as _literally in position_.
+> _In situ_ is a _Latin phrase_ that translates as _literally in position_.
 
 A _Tuple_ is an _immutable sequence type_. It can behave like a list, but it
 can't be modified in situ. Tuples are _ordered and unchangeable_ collections
@@ -1164,7 +1165,7 @@ print(tuple_3)
 
 ```
 
-_Note:_ each tuple element may be of a different type, including variables.
+> **Note:** each tuple element may be of a different type, including variables.
 
 It is possible to create an empty tuple using only parentheses.
 
@@ -1235,17 +1236,17 @@ The _dictionary_ is another Python data structure. It's _not a sequence type_
 
 A _dictionary_ is a set of _key:value_ pairs.
 
-_Note:_
-
-* each _key_ must be unique
-* a _key_ may be _any immutable type of object_
-* a _dictionary_ is not a list - a list contains a set of numbered values,
-  while a dictionary holds pairs of values
-* the `len()` function works for dictionaries, too - it returns the number of
-  key:value elements in the dictionary
-* a _dictionary_ is a _one-way tool_ - if you have an English-French
-  dictionary, you can look for French equivalents of English terms, but not
-  vice versa
+> **Note:**
+>
+> * each _key_ must be unique
+> * a _key_ may be _any immutable type of object_
+> * a _dictionary_ is not a list - a list contains a set of numbered values,
+>   while a dictionary holds pairs of values
+> * the `len()` function works for dictionaries, too - it returns the number of
+>   key:value elements in the dictionary
+> * a _dictionary_ is a _one-way tool_ - if you have an English-French
+>   dictionary, you can look for French equivalents of English terms, but not
+>   vice versa
 
 The list of pairs is _surrounded by curly braces {}_, while the pairs
 themselves are _separated by commas_, and the _keys and values by colons_.
@@ -1281,8 +1282,8 @@ print(phone_numbers['president'])  # ERROR
 
 _Keys are case-sensitive_.
 
-**NOTE:** When you write a big or lengthy expression, it may be a good idea to
-keep it vertically aligned.
+> **NOTE:** When you write a big or lengthy expression, it may be a good idea
+> to keep it vertically aligned.
 
 The formatting below is called a _hanging indent_.
 
