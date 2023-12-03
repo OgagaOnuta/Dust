@@ -224,6 +224,190 @@ print(sine(PI/2))
 
 ### Section 2 - Selected Python modules (math, random, platform)
 
+The `dir()` function is able to reveal all the names provided through a
+particular module. One condition to using this is that the module has to have
+been imported as a whole (i.e., using the `import module` instruction -
+`from module` is not enough).
+
+The function returns an _alphabetically sorted list_ containing all entities'
+names available in the module identified by a name passed to the function as an
+ argument.
+
+```py
+dir(module)
+
+```
+
+> **Note:** if the module's name has been aliased, you must use the alias, not
+> the original name.
+
+```py
+'''
+Doesn't make much sense using dir() in a script
+'''
+
+import math
+
+for name in dir(math):
+    print(name, end="\t")
+
+```
+
+You can execute the function directly in the Python console to know the
+entities it contains.
+
+```py
+>>> import math
+>>> dir(math)
+
+```
+
+The `random` module delivers some mechanisms allowing you to operate with
+_pseudorandom numbers_. Data produced by deterministic computers cannot be
+random in any way.
+
+A random number generator takes a value called a _seed_, treats it as an input
+value, calculates a "random" number based on it and produces a
+_new seed value_.
+
+The most general function named `random()` _produces a float number `x` coming
+from the range `(0.0, 1.0)`.
+
+```py
+from random import random
+
+for i in range(5):
+    print(random())
+    
+```
+
+The `seed()` function is able to directly _set the generator's seed_.
+
+* `seed()` - sets the seed with the current time
+* `seed(int_value)` - sets the seed with the integer value `int_value`
+
+```py
+from random import random, seed
+
+seed(0)
+
+for i in range(5):
+    print(random())
+
+```
+
+If you want integer random values, one of the following functions would fit
+better:
+
+* `randrange(stop)`
+* `randrange(start, stop)`
+* `randrange(start, stop, step)`
+* `randint(left, right)` - `right` inclusive
+
+These functions may produce repeating values even if the number of subsequent
+invocations is not greater than the width of the specified range.
+
+To check for uniqueness of drawn numbers:
+
+* `choice(sequence)` - chooses a "random" element from the input sequence and
+  returns it
+* `sample(sequence, elements_to_choose)` - builds a list (a sample) consisting
+  of the `elements_to_choose` element(s) "drawn" from the input sequence
+
+> **Note:** the `elements_to_choose` must not be greater than the length of the
+> input sequence.
+
+```py
+from random import choice, sample
+
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(choice(my_list))
+print(sample(my_list, 5))
+print(sample(my_list, 10))
+
+```
+
+The `platform` module lets you access the underlying platform's data, i.e.,
+hardware, operating system, and interpreter version information.
+
+How to invoke the `platform()` function:
+`platform(aliased = False, terse = False)`
+
+* `aliased` -> when set to `True` (or any non-zero value), it may cause the
+  function to present the alternative underlying names instead of the common
+  ones
+* `terse` -> when set to `True` (or any non-zero value), it may cause the
+  function to present a briefer form of the result (if possible)
+
+```py
+from platform import platform
+
+print(platform())
+print(platform(1))
+print(platform(0, 1))
+
+```
+
+The `machine()` function returns a string with the generic name of the
+processor which runs your OS together with Python and your code.
+
+```py
+from platform import machine
+
+print(machine())
+
+```
+
+The `processor()` function returns a string filled with the real processor name
+(if possible).
+
+```py
+from platform import processor
+
+print(processor())
+
+```
+
+The `system()` function returns the generic OS name as a string.
+
+```py
+from platform import system
+
+print(system())
+
+```
+
+The `version()` function returns a string with the OS version.
+
+```py
+from platform import version
+
+print(version())
+
+```
+
+If you need to know what version of Python is running your code, you can check
+it using a number of dedicated functions - here are two of them:
+
+* `python_implementation()` -> returns a string denoting the Python
+  implementation (expect `CPython` here, unless you decide to use any
+  non-canonical Python branch)
+* `python_version_tuple()` -> returns a three-element tuple filled with:
+    * the _major_ part of Python's version
+    * the _minor_ part
+    * the _patch_ level number
+
+```py
+from platform import python_implementation, python_version_tuple
+
+print(python_implementation())
+
+for atr in python_version_tuple():
+    print(atr)
+
+```
+
 ### Section 3 - Modules and Packages
 
 ### Section 4 - Python Package Installer (PIP)
