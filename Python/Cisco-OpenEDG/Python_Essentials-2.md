@@ -410,6 +410,99 @@ for atr in python_version_tuple():
 
 ### Section 3 - Modules and Packages
 
+A module is a _kind of container filled with functions_. It's generally a good
+idea not to mix functions with different application areas within one module.
+
+A **package** is a way to group your _modules_. In the world of modules, a
+package plays a similar role to a folder/directory in the world of files.
+
+Upon import, a new subfolder is created named `__pycache__`. Inside the folder
+is a file named `module.cpython-xy.pyc`, where `module` is the module's name,
+`cpython` is the python implementation used to create the file, `xy` is the
+python version, and `pyc` comes from the word _Python_ and _compiled_.
+
+When Python imports a module for the first time, it _translates its contents_
+_into a somewhat compiled shape_. Python is able to check if the module's
+source file has been modified (the `pyc` file will be rebuilt) or not (the
+`pyc` file may be run at once).
+
+When a module is imported, its contents are _implicitly executed by Python_.
+
+> **Note:** the _initialization takes place only once_, when the first import
+> occurs, so the assignments done by the module aren't repeated unnecessarily.
+
+Python also creates a variable called `__name__`. Each source file uses its
+own, separate version of the variable - it isn't shared between modules.
+
+We can say that:
+
+* when you run a file directly, its `__name__` variable is set to`__main__`
+* when a file is imported as a module, its `__name__` variable is set to the
+  file's name (excluding `.py`)
+
+If you write a module filled with a number of complex functions, you can use
+the `__name__` variable to place a series of tests to check if the functions
+work properly. These tests will be omitted when the code is imported as a
+module.
+
+A _convention_ used to name a variable as _personal/private_ is by preceding
+the variable's name with `_` (one underscore) or `__` (two underscores).
+
+The line starting with `#!` _instructs the OS how to execute the contents of_
+_the file_ for _Unix_ and _Unix-like_ OSs (including _MacOS_).
+
+A _string_ placed before any module instructions (including imports) is called
+the _doc-string_, and should briefly explain the purpose and contents of the
+module.
+
+How Python searches for modules:
+
+* There's a special variable (a list) storing all locations (directories)
+  that are searched in order to find a module which has been requested by the
+  `import` instruction.
+* Python browses these folders in the order in which they are stored in the
+  list - if the module cannot be found in any of these directories, the import
+  fails.
+* Otherwise, the first folder containing a module with the desired name will be
+  taken into consideration (if any of the remaining directories contains a
+  module of that name, it will be ignored).
+* The variable is named `path`, and it's accessible through the `sys` module.
+
+```py
+import sys
+
+for p in  sys.path:
+    print(p)
+    
+```
+
+If you want to convince Python to take into account a non-standard package's
+directory, its name needs to be inserted/appended into/to the import directory
+list stored in the `path` variable contained in the `sys` module.
+
+Using a _relative path_ for the directory will work only if you run the file
+from its home folder.
+
+**Packages**, like _modules_, may require _initialization_. Python expects
+there to be a file with a very unique name inside the package's folder:
+`__init__.py`. The contents of the file are executed when any of the package's
+modules is imported. If you don't want any special initializations, you can
+leave the file empty, but you can't omit it.
+
+> **Remember:** The presence of the `__init__.py` file finally makes up the
+> package.
+>
+> **Note:** it's not only the _root_ directory that can contain the
+> `__init__.py` file - you can put it inside any of its subdirectories
+> (subpackages) too, if they need some special kind of initialization.
+
+We can also use a _zipped directory_ as a package.
+
+```py
+path.append("..\\packages\\extrapack.zip")
+
+```
+
 ### Section 4 - Python Package Installer (PIP)
 
 ## Module 2. STRINGS, STRING AND LIST METHODS, EXCEPTIONS
