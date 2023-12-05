@@ -505,6 +505,108 @@ path.append("..\\packages\\extrapack.zip")
 
 ### Section 4 - Python Package Installer (PIP)
 
+Python was created as open-source software. To make the model work and evolve,
+some additional tools should be provided, tools that help the creators to
+publish, maintain, and take care of their code. These same tools should help
+users to make use of the code.
+
+To make this world go round, two basic entities have been established and kept
+in motion:
+
+* a centralized repository of all available software packages; and
+* a tool allowing users to access the repository.
+
+The repository is named **PyPI** _(Python Package Index)_, and it's maintained
+by a workgroup named **Packaging Working Group**, a part of the Python
+Software Foundation, whose main task is to support Python developers in
+efficient code dissemination.
+
+PWG website: <https://wiki.python.org/psf/PackagingWG>  
+PyPI website: <https://pypi.org/>
+
+PyPI is not the only existing Python repository, it's the most important
+Python repo in the world. The PyPI repo is sometimes referred to as the
+_Cheese Shop_. It's a reference to an old Monty Python's sketch of the same
+name.
+
+The tool used to access this repository is called **pip** _(pip installs_
+_packages)_. It's a recursive acronym.
+
+How to install pip:
+
+* on MS Windows
+
+    The MS Windows Python installer already contains _pip_. If the _PATH_
+    variable is misconfigured, it may be unavailable. The easiest way to
+    reconfigure the _PATH_ variable is to reinstall Python, instructing the
+    installer to set it for you. Run the command below to confirm:
+
+    ```sh-session
+    pip --version
+    ```
+
+* on Linux
+
+    Run the below to command to check if available:
+
+    ```sh-session
+    pip3 --version
+    ```
+
+    Run the below command to install (depending on your distribution):
+
+    ```sh-session
+    sudo apt install python3-pip
+    ```
+
+* On Mac
+
+    If you installed Python 3 using the _brew_ installer, _pip_ is already
+    present in your system. Run the below command to confirm:
+
+    ```sh-session
+    pip3 --version
+    ```
+
+**Dependency** is a phenomenon that appears every time you're going to use a
+piece of software that relies on other software.
+
+> Note that dependency may include (and generally does include) more than one
+> level of software development.
+
+_pip_ can discover, identify, and resolve all dependencies.
+
+`pip help` or `pip3 help` tells us what _pip_ can do for us. If you want to
+know more about any of the listed operations, you can run the
+`pip help operation` command, e.g., `pip help install`.
+
+To know what Python packages have been installed, run the `pip list` command.
+To know more about any of the installed packages, run the command
+`pip show package_name`, e.g., `pip show pip`.
+
+_pip_ is not able to store all PyPI content locally, you would have to have a
+network connection whenever you're going to ask _pip_ for anything that may
+involve direct interactions with the PyPI infrastructure.
+
+Run `pip search anystring` to browse PyPI content via the console.  
+Check <https://pypi.org/search> to browse PyPI content on the web.
+
+`pip install package` installs the package system-wide.  
+`pip install --user package` installs the package for only the specified
+user.  
+`pip install -U package_name` to update a package. You can also make use of the
+`--user` option.  
+`pip install package_name==package_version` to install a user-selected
+version.  
+`pip uninstall package_name` to uninstall a package.
+
+Some sa that one of the most important programming virtues is _laziness_. A
+_lazy programmer_ is a programmer who looks for existing solutions and
+analyses the available code before they start to develop their own software
+from scratch.
+
+This is why _PyPI_ and _pip_ exist - use them!
+
 ## Module 2. STRINGS, STRING AND LIST METHODS, EXCEPTIONS
 
 ### Section 1 - Characters and Strings vs. Computers
