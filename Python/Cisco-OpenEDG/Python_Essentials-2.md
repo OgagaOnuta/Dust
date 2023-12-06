@@ -611,6 +611,62 @@ This is why _PyPI_ and _pip_ exist - use them!
 
 ### Section 1 - Characters and Strings vs. Computers
 
+Computers store characters as numbers. Every character used by a computer
+corresponds to a unique number, and vice versa.
+
+**ASCII** _(American Standard Code for Information Interchange)_  
+**I18N** _(Internationalization, i.e., an I, 18 letters, then an N)_
+
+A classic form of ASCII code uses eight bits for each sign. Eight bits mean
+256 different characters. The first 128 are used for standard Latin alphabet.
+
+A _code point_ is a number which corresponds to a character.  
+A _code page_ is a standard for using the upper 128 code points to store
+national characters.
+
+To determine the meaning of a specific code point, you have to know the target
+code page. The code points derived from the code page concept are ambiguous.
+
+Code pages helped the computer industry to solve I18N issues for some time, but
+was not a permanent solution. The concept that solved the problem in the long
+term was _Unicode_.
+
+**Unicode** assigns unique (unambiguous) characters to more than a million code
+points.
+
+The first 128 Unicode code points are identical to ASCII, and the first 256
+Unicode code points are identical to the ISO/IEC 8859-1 code page (Western
+European languages code page).
+
+The Unicode standard says nothing about how to code and store the characters in
+the memory and files. It only names all available characters and assigns them
+to planes (a group of characters of similar origin, application, or nature).
+
+There is more than one standard describing the techniques used to implement
+Unicode in actual computers and computer storage systems. The most general of
+them is **UCS-4** _(Universal Character Set)_.
+
+UCS-4 uses 32 bits (four bytes) to store each character, and the code is just
+the Unicode code points' unique number. UCS-4 increases a text's size by four
+times compared to standard ASCII.
+
+> 8 bits = 1 byte
+
+A smarter form of encoding Unicode texts is **UTF-8** _(Unicode Transformation_
+_Format)_. UTF-8 uses as many bits for each of the code points as it really
+needs to represent them.
+
+**BOM** _(Byte Order Mark)_ is a special combination of bits announcing
+encoding used by a file's content.
+
+Python 3 fully supports Unicode and UTF-8
+
+* you can use Unicode/UTF-8 encoded characters to name variable and other
+  entities;
+* you can use them during all input and output.
+
+This means that Python 3 is completely I18Ned.
+
 ### Section 2 - The nature of strings in Python
 
 ### Section 3 - String Methods
