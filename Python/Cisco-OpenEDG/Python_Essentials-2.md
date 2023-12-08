@@ -669,6 +669,63 @@ This means that Python 3 is completely I18Ned.
 
 ### Section 2 - The nature of strings in Python
 
+**Strings** are immutable sequences.
+
+Strings can be represented on a line by starting and ending with a _single_
+_apostrophe/quote_, and on multiple lines by starting and ending with
+_three apostrophes/quotes_.
+
+```py
+single_line1 = 'string'
+single_line2 = "string"
+
+multi_line1 = '''Line #1
+Line #2'''
+
+multi_line2 = """Line #1
+Line #2"""
+
+```
+
+Strings can be:
+
+* concatenated (joined), using the `+` operator
+* replicated, using the `*` operator
+
+```py
+str1 = "a"
+str2 = "b"
+
+print(str1 + str2)  # "ab"
+print(str2 + str1)  # "ba"
+print(5 * "a")  # "aaaaa"
+print("b" * 4)  # "bbbb"
+
+```
+
+_Shortcut variants_ of the above operators are applicable for strings
+(`+=` and `*=`).
+
+The ability to use the same operator against completely different kinds of data
+is called **overloading**.
+
+To know a specific character's _ASCII/UNICODE code point value_, you use the
+`ord()` function (as in _ordinal_).
+
+To know the corresponding character of a _code point_, you use the `chr()`
+function.
+
+* To access any character in a string, you can do it using _indexing_.
+* You can _iterate_ through strings.
+* Strings can be sliced _i.e._, `sequence[start:stop:step]`.
+* The `in` and `not in` operators works on strings.
+* Characters in a string cannot be removed using the `del` instruction as it is
+  an immutable sequence, but the list can be removed as a whole.
+* The `index()` method searches the sequence from the beginning, and returns
+  the _index of the first occurrence_ of the argument.
+* The `count()` method counts all occurrences of the element inside the
+  sequence.
+
 ### Section 3 - String Methods
 
 ### Section 4 - String in action
