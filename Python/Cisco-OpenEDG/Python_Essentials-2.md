@@ -728,6 +728,9 @@ function.
 
 ### Section 3 - String Methods
 
+Methods don't have to be invoked from within variables only. They can be
+invoked directly from within string literals.
+
 ### Section 4 - String in action
 
 ### Section 5 - Four simple programs
