@@ -733,6 +733,44 @@ invoked directly from within string literals.
 
 ### Section 4 - String in action
 
+Python strings can be compared using the same set of operators which are in use
+in relation to numbers (`==`, `!=`, `>`, `>=`, `<`, `<=`). It compares the code
+point values, character by character.
+
+Two strings are equal when they consist of the same characters in the same
+order. The final relation between strings is determined by comparing the first
+different character in both strings.
+
+String comparison is always case-sensitive (upper-case letters are taken as
+lesser than lower-case ones).
+
+Even if a string contains digits only, it's still not a number.
+
+Comparing strings against numbers is generally a bad idea. The only comparisons
+you can perform with impunity are these symbolized by the `==` and `!=`
+operators. The former always gives `False`, while the latter always produces
+`True`. Using any of the remaining comparison operators will raise a
+`TypeError` exception.
+
+Lists can be sorted in two ways. This also applies to lists containing strings.
+
+* The function `sorted()` returns a new list with the elements sorted.
+* The method `sort()` modifies the list itself.
+
+Numbers can be converted to strings using the `str()` function. The reverse
+transformation is possible only when the string represents a valid number, else
+a `ValueError` exception is raised. The `int()` function converts to an integer
+and the `float()` function converts to a float.
+
+```py
+s1 = "12.8"
+i = int(s1)  # ValueError
+
+s2 = "12"
+f = float(s2)  # 12.0
+
+```
+
 ### Section 5 - Four simple programs
 
 ### Section 6 - Errors, the programmer's daily bread
