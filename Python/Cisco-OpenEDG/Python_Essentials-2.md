@@ -773,11 +773,195 @@ f = float(s2)  # 12.0
 
 ### Section 5 - Four simple programs
 
+```py
+'''
+Caesar Cipher (encryption)
+Caesar Cipher (decryption)
+Numbers Processor
+IBAN Validator
+'''
+
+```
+
 ### Section 6 - Errors, the programmer's daily bread
+
+You have to protect yourself from errors in order to be considered a good
+programmer.
+
+Each time your code tries to do something wrong/unenforceable, Python does two
+things:
+
+* it stops your program;
+* it creates a special kind of data, called an _exception_.
+
+Both of these activities are called _raising an exception_. Python always
+raises an exception when it has no idea what to do with your code.
+
+Python provides effective tools that allow you to _observe exceptions,_
+_identify them and handle them_ efficiently. Potential exceptions have their
+unambiguous names, so you can categorize them and react appropriately.
+
+The word _try_ is the key to handling exceptions. It's a keyword.
+
+The recipe for success is as follows:
+
+* first, you have to _try to do something_;
+* next, you have to _check whether everything went well_.
+
+```py
+# The code that always runs smoothly
+
+try:
+    # do something (risky code)
+except (Exception_1):
+    # fix an error
+except (Exception_2):
+    # fix another error
+except (...):
+    # ...
+except (Exception):
+    # fix any other error
+
+# Back to normal
+
+```
+
+Note that:
+
+* the `except` branches are searched in the same order in which they appear in
+  the code
+* you must not use more than one `except` branch with a certain exception name
+* the number of different `except` branches is arbitrary - if you use `try`,
+  you must put at lease one `except` branch after it
+* the `except` keyword must no be used without a preceding `try`
+* if any of the `except` branches is executed, no other branches will be
+  visited
+* if none of the specified `except` branches matches the raised exception, the
+  exception remains unhandled
+* if an unnamed `except` branch exists, it has to be specified as the last
+* you cannot add more than one unnamed `except` branch after the named ones.
 
 ### Section 7 - The anatomy of exceptions
 
+Python 3 defines 63 _built-in exceptions_, and all of them form a
+_tree-shaped hierarchy_.
+
+In summary:
+
+* each exception raised falls into the first matching branch
+* the matching branch doesn't have to specify the same exception - it's enough
+  that the exception is more general (abstract) than the raised exception.
+
+> **Remember:** don't put more general exceptions before more concrete ones,
+> it will make the concrete ones unreachable and useless.
+
+If you want to handle two or more exceptions in the same way, you can use the
+following syntax, putting all the engaged exception names into a
+comma-separated list and not forget the parentheses:
+
+```py
+try:
+    pass
+except (Exception_1, Exception_2):
+    pass
+
+```
+
+If an exception is raised inside a function, it can be handled:
+
+* inside the function
+* outside the function
+
+> **Note:** the _exception raised can cross function and module boundaries_,
+> and travel through the invocation chain looking for a matching `except`
+> clause able to handle it.
+
+The `raise` instruction raises the specified exception named as if it was
+raised in a normal (natural) way.
+
+```py
+raise exception
+
+```
+
+The instruction enables you to:
+
+* simulate raising actual exceptions
+* partially handle an exception and make another part of the code responsible
+  for completing the handling.
+
+You can use this instruction to test your exception handling routine without
+forcing the code to do stupid things.
+
+The `raise` instruction may also be utilized with the absence of the
+exception's name:
+
+```py
+raise
+
+```
+
+There is one serious restriction: this kind of `raise` instruction may be used
+_inside the `except` branch only_; using it in any other context causes an
+error. The instruction will immediately re-raise the same exception as
+currently handled.
+
+How does `assert` work?
+
+```py
+assert expression
+
+```
+
+* it evaluates the expression
+* if the expression evaluates to `True`, or a non-zero numerical value, or a
+  non-empty string, or any other value different than `None`, it won't do
+  anything else
+* otherwise, it automatically and immediately raises an exception named
+  `AssertionError` (in this case, we say that the assertion has failed)
+
+Assertions don't supersede exceptions or validate the data, they are their
+supplements.
+
 ### Section 8 - Useful exceptions
+
+* `ArithmeticError`
+
+    BaseException <- Exception <- ArithmeticError
+
+* `AssertionError`
+
+    BaseException <- Exception <- AssertionError
+
+* `BaseException`
+
+* `IndexError`
+
+    BaseException <- Exception <- LookupError <- IndexError
+
+* `KeyboardInterrupt`
+
+    BaseException <- KeyboardInterrupt
+
+* `LookupError`
+
+    BaseException <- Exception <- LookupError
+
+* `MemoryError`
+
+    BaseException <- Exception <- MemoryError
+
+* `OverflowError`
+
+    BaseException <- Exception <- ArithmeticError <- OverflowError
+
+* `ImportError`
+
+    BaseException <- Exception <- StandardError <- ImportError
+
+* `KeyError`
+
+    BaseException <- Exception <- LookupError <- KeyError
 
 ## Module 3. OBJECT-ORIENTED PROGRAMMING
 
