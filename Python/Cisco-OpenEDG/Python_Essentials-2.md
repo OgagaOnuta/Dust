@@ -967,6 +967,98 @@ supplements.
 
 ### Section 1 - The foundations of OOP
 
+Procedural Programming and Object Programming.  
+The procedural style of programming was the dominant approach to software
+development for decades of IT, and it is still in use today.
+
+Python is a universal tool for both _object_ and _procedural_ programming.
+
+In the _procedural_ approach, it's possible to distinguish two different and
+completely separate worlds: _the world of data, and the world of code_.
+
+In the _object_ approach, _the data and the code_ are enclosed together in the
+same world, divided into classes.  
+Every _class_ is like a recipe which can be used when you want to create a
+useful object.  
+Every _object_ has a set of traits (properties/attributes) and is able to
+perform a set of activities (methods).
+
+The recipes may be modified if they are inadequate for specific purposes and,
+in effect, new classes may be created. These new classes inherit properties and
+methods from the originals, and usually add some new ones, creating new, more
+specific tools.
+
+When a class is derived from another class, their relation is named
+**inheritance**.  
+The class which derives from the other class is named a **subclass**.  
+The second side of this relation is named **superclass**.
+
+A properly constructed class (and thus, its objects) are able to protect the
+sensible data and hide it from unauthorized modifications. There is no clear
+border between data and code; they live as one in objects.
+
+The _class_ here, is like a category, as a result of precisely defined
+similarities.
+
+> **Note:** the hierarchy grows from top to bottom, like tree roots, not
+> branches.
+
+The most general, and the widest, class is always at the top (the superclass)
+while its descendants are located below (the subclasses).
+
+A **class** is a _set of objects_.  
+An **object** is a _being belonging to a class_.
+
+An object is an _incarnation of the requirements, traits, and qualities_
+_assigned to a specific class_.  
+Classes form a hierarchy.
+
+Each _subclass is more specialized_ (more concrete) than its superclass.  
+Each _superclass is more general_ (more abstract) than any of its subclasses.
+
+Any object bound to a specific level of a class hierarchy _inherits all the_
+_traits (as well as the requirements and qualities) defined inside any of the_
+_superclasses_.
+
+The object programming convention assumes that _every existing object may be_
+_equipped with three groups of attributes:_
+
+* a **name** that uniquely identifies it within its home namespace
+  (although there may be some anonymous objects, too)
+* a **set of individual properties** which make it original, unique, or
+  outstanding (although it's possible that some objects may have no properties
+  at all)
+* a **set of abilities to perform specific activities (methods)**, able to
+  change the object itself, or some of the other objects
+
+The class you define has nothing to do with the object: _the existence of a_
+_class does not mean that any of the compatible objects will automatically_
+_be created_.
+
+```py
+class TheSimplestClass:
+    pass
+    
+```
+
+* The _definition_ begins with the keyword `class`.
+* The keyword is followed by an _identifier_ which will name the class.
+* Next, you add a colon (`:`), forming a _nested block_. The content inside the
+  block define all the class's properties and activities.
+
+The newly defined class becomes a tool that is able to create new objects, and
+has to be used explicitly, on demand.  
+To do this, you need to assign a variable to store the newly created object of
+that class, and create an object at the same time.
+
+```py
+my_first_object = TheSimplestClass()
+
+```
+
+The act of creating an object of the selected class is also called an
+**instantiation** (as the object becomes an _instance of the class_).
+
 ### Section 2 - A short journey from procedural to object approach
 
 ### Section 3 - OOP: Properties
