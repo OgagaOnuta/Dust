@@ -1061,6 +1061,143 @@ The act of creating an object of the selected class is also called an
 
 ### Section 2 - A short journey from procedural to object approach
 
+Stack - LIFO (Last In - First Out)  
+A stack is an object with two elementary operations:
+
+* **push** (when a new element is put on the top)
+* **pop** (when an existing element is taken away from the top)
+
+The ability to hide (protect) selected values against unauthorized access is
+called _encapsulation_. The encapsulated values can be neither accessed nor
+modified if you want to use them exclusively.
+
+A class _constructor_, which is named in a strict way, and invoked implicitly,
+when a new object is created, has a general purpose to construct a new object.
+It performs all needed initializations.
+
+* the constructor's name is always `__init__`
+* it has to have _at least one parameter_, which is used to represent the newly
+  created object
+* the obligatory parameter is usually named `self` - this is only a
+  _convention_, but should be followed as it simplifies the process of reading
+  and understanding your code
+
+```py
+class Class:  # Defining the class
+    def __init__(self):  # Defining the constructor function
+        pass
+
+
+class_object = Class()  # Instantiating the object
+
+```
+
+The _dot notation_ is the general convention for accessing an object'
+properties.
+
+When any class component has a _name starting with two underscores (`__`), it_
+_becomes **private**_ - this means it can be accessed only from within the
+class.
+
+```py
+class Class:  # Defining the class
+    def __init__(self):  # Defining the constructor function
+        self.stacked_list = []
+        self.__stack_list = []
+
+
+class_object = Class()  # Instantiating the object
+print(len(Class.stacked_list))  # OUTPUTS "0"
+print(len(Class.__stack_list))  # ERROR
+
+```
+
+All class methods have to have the `self` parameter at the first position, it
+plays the same role as the constructor parameter. It allows the method to
+access entities (properties and activities/methods) carried out by the actual
+object. Every time Python invokes a method, it implicitly sends the current
+object as the first argument.
+
+Creating a subclass of a superclass:
+
+* define a new subclass pointing to the superclass
+
+    ```py
+    class Subclass(Superclass):
+        pass
+    
+    ```
+
+    It gets all the components defined by its superclass.
+
+* you have to explicitly invoke a superclass's constructor
+
+    ```py
+    class Subclass(Superclass):
+        def __init__(self):
+            Superclass.__init__(self)
+            pass
+    
+    ```
+
+    Inside the subclass's constructor is the only time you can invoke any of
+    the available constructors explicitly.
+
+    > **Note:** invoking any method (including constructors) from outside the
+    > class never requires you to put the `self` argument at the argument's
+    > list, invoking a method from within the class demands explicit usage of
+    > the `self` argument, and it has to be put first on the list.
+
+    It's generally a recommended practice to invoke the superclass's
+    constructor before any other initializations you want to perform inside
+    the subclass.
+
+    Methods inherited from the superclass can also be overridden.
+
+```py
+class Stack:  # Defining a class
+    def __init__(self):  # Defining the constructor
+        self.__stack_list = []  # Declaring a private variable
+
+    def push(self, val):  # Defining a method
+        self.__stack_list.append(val)
+
+    def pop(self):
+        val = self.__stack_list[-1]
+        del self.__stackList[-1]
+        return (val)
+
+
+class AddingStack(Stack):  # Defining a subclass inheriting from a superclass
+    def __init__(self):  # Defining the subclass constructor
+        Stack.__init__(self)  # Invoking the superclass constructor explicitly
+        self.__sum = 0
+
+    def get_sum(self):
+        return (self.__sum)
+
+    def push(self, val):  # Overriding a superclass method
+        self.__sum += val
+        Stack.push(self, val)
+
+    def pop(self):
+        val = Stack.pop(self)
+        self.__sum -= val
+        return (val)
+
+
+stack_object = AddingStack()  # Instantiating an object
+
+for i in range(5):
+    stack_object.push(i)
+
+print(stack_object.get_sum())  # OUTPUTS "10"
+
+for i in range(5):
+    print(stack_object.pop())  # OUTPUTS "4\n3\n2\n1\n0"
+
+```
+
 ### Section 3 - OOP: Properties
 
 ### Section 4 - OOP: Methods
