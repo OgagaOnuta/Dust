@@ -1200,6 +1200,122 @@ for i in range(5):
 
 ### Section 3 - OOP: Properties
 
+Instance variables (properties) have some important consequences:
+
+* different objects of the same class may possess different sets of properties
+* there must be a way to safely check if a specific object owns the property
+  you want to utilize
+* each object carries its own set of properties
+
+The word instance suggests that they are closely connected to the _objects_
+(which are class instances), not to the _classes_ themselves.
+
+Python objects, when created, are gifted with a _small set of predefined_
+_properties and methods_.
+
+One of them is a variable named `__dict__` (a dictionary), which contains the
+names and values of all the properties (variables) the object is currently
+carrying.
+
+A property can be created on the fly, outside the class's code. Modifying an
+instance variable of any object has no impact on all the remaining objects.
+Instance variable are perfectly isolated from each other.
+
+When Python sees that you want to add an instance variable to an object and
+you're going to do it inside any of the object's methods, it _mangles the_
+_operation_ in the following way:
+
+* it puts a class name before the variable name;
+* it puts an additional underscore at the beginning.
+
+The name is now fully accessible from outside the class.
+
+```py
+print(object_1._ExampleClass__var)
+
+```
+
+where `object_1` is the object name, `ExampleClass` is the class the object was
+instantiated from, and `__var` is the property name.  
+The mangling won't work if you add a private instance variable outside the
+class code. In this case, it'll behave like any other ordinary property.
+
+A _class variable_ is a property which exists in just one copy and is stored
+outside any object. Initializing the variable inside the class but outside any
+of its methods makes the variable a _class variable_.
+
+> **Note:** no _instance variable_ exists if there is no object in the class;
+> a _class variable_ exists in one copy even if there are no objects in the
+> class.
+
+Accessing a _class variable_ looks the same as accessing any _instance_
+_attribute_.
+
+```py
+class ExampleClass:
+    counter = 0  # class variable
+
+    def __init__(self, val = 1):
+        self.__first = val  # instance variable
+        ExampleClass.counter += 1
+
+```
+
+Class variables aren't shown in an object's `__dict__`. A class variable always
+presents the same value in all class instances (objects).
+
+Mangling a class variable's name has the same effects as instance variables.
+
+```py
+class ExampleClass:
+    var = 1
+
+    def __init__(self, val):
+        ExampleClass.var = val
+
+
+print(ExampleClass.__dict__)
+example_object = ExampleClass(2)
+
+print(ExampleClass.__dict__)
+print(example_object.__dict__)
+
+```
+
+* Changing the assignment in the constructor to `self.var = val` would create
+  an instance variable of the same name as the class's one.
+* Changing the assignment in the constructor to `var = val` would operate on a
+  method's local variable.
+
+Python provides a function named `hasattr`, which is able to safely check if
+any object/class contains a specified property. The function expects two
+arguments to be passed to it:
+
+* the class or the object being checked
+* the name of the property whose existence has to be reported
+
+    > _Note:_ the property name has to be a string containing the attribute
+    > name, not the name alone.
+
+The `hasattr` function returns `True` or `False`.
+
+```py
+class ExampleClass:
+    def __init__(self, val):
+        if (val % 2 != 0):
+            self.a = 1
+        else:
+            self.b = 1
+
+
+example_object = ExampleClass(1)
+print(example_object.a)
+
+if (hasattr(example_object, "b")):
+  print(example_object.b)
+
+```
+
 ### Section 4 - OOP: Methods
 
 ### Section 5 - OOP Fundamentals: Inheritance
