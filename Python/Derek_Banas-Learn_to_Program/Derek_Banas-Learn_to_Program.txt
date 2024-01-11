@@ -1,0 +1,379 @@
+DEREK BANAS - LEARN TO PROGRAM
+
+1. Learn to Program
+===================
+
+Variable names can contain alphabets, numbers, and underscores but can
+only begin with an alphabet or underscore, and must not contain keywords
+
+The split() function separates input by a delimiter
+The int() function converts input to integers
+
+The eval() function converts input to the required format
+
+and: If both are true, return true
+or: If either is true, return true
+not: Convert a true condition to false and vice versa
+
+2. Looping
+==========
+
+Floating point numbers are not always precise
+
+While loops are used when you don't know how many times you would loop
+The while loop counter should be defined before the loop
+
+"continue" stops executing and jumps back to the top of the loop
+"break" stops executing and jumps out of the loop
+
+3. Math Strings Exception Handling
+==================================
+
+"math" is a module, and methods can only be accessed by
+referencing the module when using the "import" statement
+
+methods can be accessed without referencing
+the module when using the "from" statement
+
+The type() function returns the type of the object passed to it
+The len() function returns the length of a string
+The str() function converts the input to a string
+The ord() function converts characters to ASCII unicode
+The chr() function converts ASCII unicode to characters
+
+4. String Functions
+===================
+*******************
+
+5. Functions
+============
+
+Variables defined inside a function are available only to that function
+and are known as "Local Variables"
+
+"Global Variables" are variables defined outside of a function, and are
+not necessarily going to change the value of the variable outside even
+if passed inside a function
+
+The "global" keyword says to use the global version of the variable
+
+A function without a return value will return "None"
+
+"*args" is used when we don't know the number of arguments
+
+6. Lists
+========
+
+Lists allow us to refer to a group of data using just one name
+The first item in a list has an index of zero "0"
+
+BUBBLE SORT
+===========
+
+1. An outer loop decreases in size each time
+2. The goal is to have largest number at the end of the list
+   when the outher loop completes one cycle
+3. The inner loop starts comparing indexes at the beginning
+   of the loop
+4. Check if list[index] > list[index + 1]
+5. If so, swap the index values
+6. When the inner loop completes, the largest number is at the
+   end of the list
+7. Decrement the outer loop by 1
+
+List comprehension is another way for us to construct lists
+and perform an operation on each item in the list
+
+7. Recursive Functions Dictionaries
+===================================
+
+Dictionaries are similar to Lists,
+but use a "key: value" pair
+They are non-sequential
+
+A Recursive Function is a function that refers to itself
+i.e. it calls itself inside of itself
+
+Every recursive function must contain a condition in which
+it stops calling itself
+
+8. Reading/Writing Files
+========================
+
+A Tuple is like a list but the values cannot be changed.
+They are surrounded with parentheses ()
+
+9. Object Oriented Programming
+==============================
+
+OBJECT ORIENTED PROGRAMMING
+
+Real World Objects: Attributes & Capabilities
+- Attributes: Fields (Variables)
+- Capabilities: Methods (Functions)
+
+Getters and Setters are used to protect our object from assigning
+bad field values to them, or to provide improved output
+
+10. Inheritance Magic Methods
+=============================
+
+INHERITANCE
+When we create a class, we can inherit all the fields
+and methods from a previously created class
+
+The "subclass" will inherit from the "superclass"
+
+Magic methods are surrounded by double underscores
+
+# __eq__ : Equal
+# __ne__ : Not Equal
+# __lt__ : Less Than
+# __gt__ : Greater Than
+# __le__ : Less Than or Equal
+# __ge__ : Greater Than or Equal
+# __add__ : Addition
+# __sub__ : Subtraction
+# __mul__ : Multiplication
+# __div__ : Division
+# __mod__ : Modulus
+
+Objects can be created inside of a class from the same class
+
+11. Static & Exception Handling
+===============================
+
+A Static Method is going to allow access without
+the need to initialize a class.
+
+They are mainly used as utility methods, or also
+whenever it doesn't make sense for a real world
+object to be able to perform a task but you still
+need to have that method available.
+
+If you create a field outside of any method, it is
+automatically a static variable, meaning the value
+of the variable will be shared by every object the
+variable belongs to.
+
+# To import a module, exclude the .py extension
+# import t111_module
+
+EXCEPTIONS are going to be triggered either when an error
+occurs or when you want an exception to be triggered.
+
+Exceptions are used to handle errors, or to execute
+specific code when something happens.
+
+`else` is used when you want some code to run if an
+exception does not occur
+`finally` will be used when you want some code to
+execute whether an exception is raised or not
+
+12. Lambda Map Filter Reduce
+============================
+
+FUNCTION ANNOTATION
+====================
+Defining the data types of attributes and return values.
+They do not affect how the function operates, but mainly for documentation.
+
+ANONYMOUS FUNCTIONS using "lambda"
+==================================
+"lambda" functions can also be assigned to a name
+
+`lambda arg1, arg2, ...: expression using the arguments`
+
+`map` allows us to execute a function on each item in a list
+
+`filter` will select items from a list based off of a function
+
+`reduce` will receive a list and return a single result.
+To use `reduce`, we would need to import it.
+
+13. Iterables : List Comprehensions : Generators
+================================================
+
+An ITERABLE is a stored sequence/list of values.
+An Iterable will return an ITERATOR.
+An Iterator will retrieve the next value from a sequence of values.
+
+A LIST COMPREHENSION executes an expression against an iterable
+
+List Comprehension return lists
+
+A GENERATOR function is going to return a result generator whenever
+you call it and you would be able to spend or resume during execution
+to create results over time rather than all at once.
+
+We mainly use Generators when we want to get a very large result set but
+we don't want to slow down our program by creating the result all at once
+
+GENERATOR EXPRESSIONS look just like List Comprehension
+but they return results one at a time.
+They are surrounded by parentheses instead of square brackets.
+
+14. Python Threads
+==================
+
+THREADS are like running multiple programs at once.
+
+Threads take turns executing, while one is executing,
+the other sleeps until it's its turn to execute.
+
+A Thread is a block of code that executes.
+
+Whenever you're using your thread, you can lock other threads from executing.
+
+15. Regular Expression Tutorial
+===============================
+
+REGULAR EXPRESSIONS (REGEX)
+They are used to:
+- Search for a specific string in a large amount of data
+- Verify that a string has the proper format (Email, Phone Number)
+- Find a string and replace it with another string
+- Format data into the proper form
+
+===================================================================
+
+- A period (.) is used to match any one character.
+- A plus (+) is used to match one or more characters that preceeds it.
+- A square bracket ([]) is used to match one or a range of any of
+  several letters. The characters in the square brackets are case sensitive.
+  Placing a caret (^) in the square brackets will search for characters not
+  specified.
+
+\b : Backspace
+\f : Form Feed
+\r : Carriage Return
+\t : Tab
+\v : Vertical Tab
+
+\d : [0-9]
+\D : [^0-9]
+\w : [a-zA-Z0-9_]
+\W : [^a-zA-Z0-9_]
+\s : [\f\n\r\t\v]
+\S : [^\f\n\r\t\v]
+
+16. Regular Expression Tutorial 2
+=================================
+
+- A question mark (?) matches zero or one of the character that preceeds it.
+- An asterisk (*) matches zero or more of the character that preceeds it.
+
+Greedy match: Searches for the biggest match possible
+Lazy match: Searches for the smallest match possible
+
+We can make a greedy match lazy by adding the question mark (?) after it.
+
+We use "WORD BOUNDARIES" to decide where our matches both start and end.
+This is represented by the "\b"
+
+STRING BOUNDARIES
+
+^ : Beginning of the string
+$ : End of the string
+
+SUBEXPRESSIONS are part of a larger expression,
+and are surrounded with parentheses
+
+17. Regular Expression Tutorial 3
+=================================
+
+Back Reference allows us to reuse the expression that preceeds it
+
+A "LOOK AHEAD" defines a pattern to match but does not return
+(?=expression)
+
+A "LOOK BEHIND" looks before the text to return but does not return
+(?<=expression)
+
+NEGATIVE LOOK AHEAD : (?!expression)
+NEGATIVE LOOK BEHIND : (?<!expression)
+
+18. Regular Expression Tutorial 4
+=================================
+
+- The OR / pipe (|) is used to define different matches
+
+Groups are used to retrieve parts of regex matches
+- regex.group()
+
+Match Object Functions provide more information on your matches
+
+Named Groups are used to assign specific names to your matches
+- (?P<name>condition)
+
+19. Python SQLite Tutorial
+==========================
+
+
+20. TkInter Tutorial
+====================
+
+
+21. TkInter Tutorial 2
+======================
+
+
+22. Python Calculator
+=====================
+
+
+23. Python Text Editor
+======================
+
+
+24. TkInter ToolBar
+===================
+
+
+25. Python Paint App
+====================
+
+
+26. Learn to Program
+====================
+
+
+27. Kivy Tutorial
+=================
+
+
+28. Kivy Tutorial 2
+===================
+
+
+29. Kivy Calculator
+===================
+
+
+30. Kivy ListView & ListAdapter
+===============================
+
+
+31. Widgets & Switching Screens
+===============================
+
+
+32. Django Tutorial
+===================
+
+
+33. Django Tutorial 2
+=====================
+
+
+34. Django Tutorial 3
+=====================
+
+
+35. Django Tutorial 4: Django Testing
+=====================================
+
+
+36. Django Tutorial 5
+=====================
+
