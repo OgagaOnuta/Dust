@@ -1200,12 +1200,16 @@ for i in range(5):
 
 ### Section 3 - OOP: Properties
 
-Instance variables (properties) have some important consequences:
+An _instance variable_ is a property whose existence depends on the creation of
+an object. Instance variables (properties) have some important consequences:
 
 * different objects of the same class may possess different sets of properties
 * there must be a way to safely check if a specific object owns the property
   you want to utilize
 * each object carries its own set of properties
+
+_Instance variables_ can be freely added to and removed from objects during
+their lifetime.
 
 The word instance suggests that they are closely connected to the _objects_
 (which are class instances), not to the _classes_ themselves.
@@ -1214,8 +1218,8 @@ Python objects, when created, are gifted with a _small set of predefined_
 _properties and methods_.
 
 One of them is a variable named `__dict__` (a dictionary), which contains the
-names and values of all the properties (variables) the object is currently
-carrying.
+names and values of all the properties (instance variables) the object is
+currently carrying.
 
 A property can be created on the fly, outside the class's code. Modifying an
 instance variable of any object has no impact on all the remaining objects.
@@ -1261,8 +1265,9 @@ class ExampleClass:
 
 ```
 
-Class variables aren't shown in an object's `__dict__`. A class variable always
-presents the same value in all class instances (objects).
+Class variables aren't shown in an object's `__dict__`, but in the class's
+`__dict__`. A class variable always presents the same value in all class
+instances (objects).
 
 Mangling a class variable's name has the same effects as instance variables.
 
@@ -1287,7 +1292,7 @@ print(example_object.__dict__)
 * Changing the assignment in the constructor to `var = val` would operate on a
   method's local variable.
 
-Python provides a function named `hasattr`, which is able to safely check if
+Python provides a function named `hasattr()`, which is able to safely check if
 any object/class contains a specified property. The function expects two
 arguments to be passed to it:
 
@@ -1297,7 +1302,7 @@ arguments to be passed to it:
     > _Note:_ the property name has to be a string containing the attribute
     > name, not the name alone.
 
-The `hasattr` function returns `True` or `False`.
+The `hasattr()` function returns `True` or `False`.
 
 ```py
 class ExampleClass:
@@ -1317,6 +1322,197 @@ if (hasattr(example_object, "b")):
 ```
 
 ### Section 4 - OOP: Methods
+
+A _method_ is a function embedded inside a class. A method is obliged to have
+at least one parameter (a method may be invoked without an argument, but not
+declared without parameters).
+
+The first (or only) parameter is usually named `self`, it's a convention, and
+it identifies the object for which the method is invoked. If you're going to
+invoke a method, you mustn't pass the argument for the `self` parameter -
+Python will set it for you.
+
+```py
+class Classy:
+    def method(self):
+        print("method")
+
+
+obj = Classy()
+obj.method()
+
+```
+
+If you want the method to accept parameters other than self, you should:
+
+* place them after `self` in the method's definition;
+* deliver them during invocation without specifying `self`.
+
+```py
+class Classy:
+    def method(self, par):
+        print("method:", par)
+
+
+obj = Classy()
+obj.method(1)
+obj.method(2)
+obj.method(3)
+
+```
+
+The `self` parameter is used to obtain access to the object's instance and
+class variables.
+
+```py
+class Classy:
+    class_var = 2
+
+    def method(self):
+        print(self.class_var, self.inst_var)
+
+
+obj = Classy()
+obj.inst_var = 3
+obj.method()
+
+```
+
+The `self` parameter is also used to invoke other object/class methods from
+inside the class.
+
+```py
+class Classy:
+    def other(self):
+        print("other")
+
+    def method(self):
+        print("method")
+        self.other()
+
+
+obj = Classy()
+obj.method()
+
+```
+
+If you name a method like this: `__init__`, it won't be a regular method, it
+would be a _constructor_. If a class has a constructor, it is invoked
+automatically and implicitly when the object of the class is instantiated. The
+constructor:
+
+* is obliged to have the `self` parameter.
+* may (but doesn't need to) have more parameters than just `self`; if this
+  happens, the way in which the class name is used to create the object must
+  reflect the `__init__` definition.
+* can be used to set up the object, i.e., properly initialize its internal
+  state, create instance variables, instantiate any other objects if their
+  existence is needed.
+
+```py
+class Classy:
+    def __init__(self, value):
+        self.var = value
+
+
+obj_1 = Classy("object")
+
+print(obj_1.var)
+
+```
+
+Note that the constructor:
+
+* cannot return a value, as it is designed to return a newly created object and
+  nothing else;
+* cannot be invoked directly either from the object or from inside the class
+  (you can invoke a constructor from any of the object's subclasses).
+
+Mangling applies to method names, too - a method whose name starts with `__` is
+(partially) hidden.
+
+```py
+class Classy:
+    def visible(self):
+        print("visible")
+
+    def __hidden(self):
+        print("hidden")
+
+
+obj = Classy()
+obj.visible()  # OUTPUTS: "visible"
+
+try:
+    obj.__hidden()
+except (Exception):
+    print("failed")  # OUTPUTS: "failed"
+
+obj._Classy__hidden()  # OUTPUTS: "hidden"
+
+```
+
+`__name__` is a built-in property, a string, which contains the name of the
+class. It exists only inside classes.
+
+`type()` can be used to find the class of a particular object. A statement like
+`print(obj.__name__)` will cause an error.
+
+`__module__` is a string, it stores the name of the module which contains the
+definition of the class. Any module named `__main__` is actually not a module,
+but the file currently being run.
+
+`__bases__` is a tuple, it contains classes (not class names) which are direct
+superclasses for the class. The order is the same as that used inside the class
+definition. **Note**, only classes have this attribute, objects don't.
+
+```py
+class SuperOne:
+    pass
+
+
+class SuperTwo:
+    pass
+
+
+class Sub(SuperOne, SuperTwo):
+    pass
+
+
+def printBases(cls):
+    print("(", end="")
+
+    for x in cls.__bases__:
+        print(x.__name__, end="")
+
+    print(")")
+
+
+printBases(SuperOne)  # OUTPUTS: "(object)"
+printBases(SuperTwo)  # OUTPUTS: "(object)"
+printBases(Sub)  # OUTPUTS: "(SuperOne SuperTwo)"
+
+```
+
+> **Note:** a class without explicit superclasses points to an object (a
+> predefined Python class) as its direct ancestor.
+
+All these means allow the Python programmer to perform two important activities
+specific to many objective languages:
+
+* **introspection**, the ability of a program to examine the type or properties
+  of an object an runtime;
+* **reflection**, the ability of a program to manipulate the values, properties
+  and/or functions of an object at runtime.
+
+In other words, you don't have to know a complete class/object definition to
+manipulate the object, as the object and/or its class contain the metadata
+allowing you to recognize its features during program execution.
+
+`getattr()` takes two arguments: an object, and its property name (as a
+string), and returns the current attribute's value.  
+`setattr()` takes three arguments: an object, the property name (as a string),
+and the property's new value.
 
 ### Section 5 - OOP Fundamentals: Inheritance
 
