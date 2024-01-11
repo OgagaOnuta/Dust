@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# This script makes particular files in the current directory executable,
-# with the extension of the files given as an argument
-
-extension="$1" # Command line variable for the extension
-for file in ./*."$extension";
-do
-    chmod u+x "$file"
-done

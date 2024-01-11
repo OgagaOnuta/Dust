@@ -1,3 +1,0 @@
-'''
-Days of the week
-'''
