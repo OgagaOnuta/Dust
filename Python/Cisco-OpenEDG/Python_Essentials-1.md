@@ -616,7 +616,7 @@ One of the most general forms of the slice looks like `my_list[start:end]`.
 
 * `start` is the index of the first element _included_ in the slice.
 * `end` is the index of the first element _not included_ in the slice.
-
+nnn
 This creates a new list, taking elements from the `start` index to the
 `end - 1` index, not including the `end` index.
 _Negative values_ can also be used for both start and end index.
