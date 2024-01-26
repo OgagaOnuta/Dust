@@ -88,10 +88,9 @@ def valid(puzzle):
 	# [80, 81, 82, 83, 84, 85, 86, 87, 88]
 
 	print()
-	grid, row = [], 0
-	while (row < 9):
-		col = 0
-		while (col < 9):
+	grid = []
+	for row in range(0, 9, 3):
+		for col in range(0, 9, 3):
 			grid.append(puzzle[row][col])
 			grid.append(puzzle[row][col + 1])
 			grid.append(puzzle[row][col + 2])
@@ -107,9 +106,30 @@ def valid(puzzle):
 				verdict = False
 
 			grid.clear()
-			col += 3
 
-		row += 3
+	# print()
+	# grid, row = [], 0
+	# while (row < 9):
+	# 	col = 0
+	# 	while (col < 9):
+	# 		grid.append(puzzle[row][col])
+	# 		grid.append(puzzle[row][col + 1])
+	# 		grid.append(puzzle[row][col + 2])
+	# 		grid.append(puzzle[row + 1][col])
+	# 		grid.append(puzzle[row + 1][col + 1])
+	# 		grid.append(puzzle[row + 1][col + 2])
+	# 		grid.append(puzzle[row + 2][col])
+	# 		grid.append(puzzle[row + 2][col + 1])
+	# 		grid.append(puzzle[row + 2][col + 2])
+
+	# 		print("grid: ", grid)
+	# 		if (checker(grid) == True):
+	# 			verdict = False
+
+	# 		grid.clear()
+	# 		col += 3
+
+	# 	row += 3
 
 	print()
 	# Check verdict
