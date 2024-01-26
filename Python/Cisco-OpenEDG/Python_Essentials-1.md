@@ -172,7 +172,7 @@ functions:
 * camelCase names should be used only in contexts where that's already the
   prevailing style to retain backward compatibility
 
-`var = value`
+`var = value`  
 The assignment operator `=` assigns the value of its right argument to the
 left.
 
