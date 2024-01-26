@@ -32,10 +32,6 @@ for row in sudoku:
 	for number in numbers_in_cell:
 		row.append(number)
 
-print()
-for row in sudoku:
-	print(row)
-
 
 # Create checker function
 def checker(chklist):
@@ -56,19 +52,22 @@ def valid(puzzle):
 
 	# Iterate through each row, and implement checker function
 	print()
+	num = 0
 	for row in puzzle:
-		print("row", row)
+		num += 1
+		print("row", num, ":", row)
 		if (checker(row) == True):
 			verdict = False
 
 	# Iterate through each column, and implement checker function
 	print()
-	column = []
+	column, num = [], 0
 	for col in range(9):
 		for row in puzzle:
 			column.append(row[col])
-		
-		print("column", column)
+
+		num += 1
+		print("column", num, ":", column)
 		if (checker(column) == True):
 			verdict = False
 
@@ -88,7 +87,7 @@ def valid(puzzle):
 	# [80, 81, 82, 83, 84, 85, 86, 87, 88]
 
 	print()
-	grid = []
+	grid, num = [], 0
 	for row in range(0, 9, 3):
 		for col in range(0, 9, 3):
 			grid.append(puzzle[row][col])
@@ -101,14 +100,15 @@ def valid(puzzle):
 			grid.append(puzzle[row + 2][col + 1])
 			grid.append(puzzle[row + 2][col + 2])
 
-			print("grid: ", grid)
+			num += 1
+			print("grid", num, ":", grid)
 			if (checker(grid) == True):
 				verdict = False
 
 			grid.clear()
 
 	# print()
-	# grid, row = [], 0
+	# grid, num, row = [], 0, 0
 	# while (row < 9):
 	# 	col = 0
 	# 	while (col < 9):
@@ -122,7 +122,8 @@ def valid(puzzle):
 	# 		grid.append(puzzle[row + 2][col + 1])
 	# 		grid.append(puzzle[row + 2][col + 2])
 
-	# 		print("grid: ", grid)
+	#		num += 1
+	# 		print("grid", num, ":", grid)
 	# 		if (checker(grid) == True):
 	# 			verdict = False
 
