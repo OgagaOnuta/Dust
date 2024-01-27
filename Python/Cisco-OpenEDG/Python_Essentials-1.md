@@ -65,7 +65,7 @@ application named IDLE (Integrated Development and Learning Environment).
 ### Section 1 - The "Hello, World!" Program
 
 The _function_ name along with the parentheses and argument(s) forms the
-**function invocation** (`function_name(argument)`).
+**function invocation** (`function_name(argument)`).  
 The process of calling a function is known as _function invocation/call_.
 A function invocation is one of many possible kinds of _Python instruction_.
 
@@ -97,10 +97,10 @@ automatically.
 
 _Floating-point_ numbers or _Floats_ are numbers with the decimal point.
 
-For very large or very small numbers, you can use the _scientific notation_.
-`300000000 == 3 * (10 ^ 8) == 3E8 == 3e8` where _e_ refers to exponent.
-The _exponent_ (value after the _e_) has to be an integer.
-The _base_ (value before the _e_) may be either an integer or a float.
+For very large or very small numbers, you can use the _scientific notation_,  
+`300000000 == 3 * (10 ^ 8) == 3E8 == 3e8`  
+where _e_ refers to exponent. The _exponent_ (value after the _e_) has to be an
+integer. The _base_ (value before the _e_) may be either an integer or a float.
 
 _Strings_ are used to represent texts.
 They need to be enclosed by either a quote (") or an apostrophe ('), but you
@@ -173,6 +173,7 @@ functions:
   prevailing style to retain backward compatibility
 
 `var = value`  
+
 The assignment operator `=` assigns the value of its right argument to the
 left.
 
@@ -460,7 +461,7 @@ The left argument is an integer value whose bits are shifted.
 The right argument determines the size of the shift.
 The priority of these operators is very high.
 
-> Note:
+> **Note:**
 >
 > * `17 << 2`
 >     * -> `17 * 4` (`17` multiplied by `2` to the power of `2`)
@@ -479,7 +480,7 @@ _scalars_ by analogy with mathematics.
 The **List** is a _type of data_ in Python used to store multiple objects.
 It is _ordered_ and _mutable_. Lists _begin with an open square bracket `[`_,
 and _end with a closed square bracket `]`_, and the values in the brackets are
-separated by _commas `,`_ (`numbers = [1, 2, 3, 4, 5]`).
+separated by _commas (`,`)_ (`numbers = [1, 2, 3, 4, 5]`).
 
 You can also create a list using a Python built-in function called `list()`.
 
