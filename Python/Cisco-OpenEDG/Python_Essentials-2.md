@@ -1516,6 +1516,119 @@ and the property's new value.
 
 ### Section 5 - OOP Fundamentals: Inheritance
 
+You can change the default `__str__()` method used to present any class/object
+as a string by _defining your own method of the name.
+
+```py
+class Star:
+    def __init__(self, name, galaxy)
+        self.name = name
+        self.galaxy = galaxy
+
+    def __str__(self):
+        return (self.name + " in " + self.galaxy)
+
+
+sun = Star("Sun", "Milky Way")
+print(sun)  # OUTPUT: Sun in Milky Way
+
+```
+
+**Inheritance** is a common practice (in OOP) of passing attributes and methods
+from the superclass (defined and existing) to a newly created class, called the
+subclass. It is a way of building a new class, not from scratch, but by using
+an already defined repertoire of traits. The new class inherits all already
+existing attributes, but is able to add some new ones if needed.
+
+Python offers a function, `issubclass()` which is able to identify a
+relationship between two classes, and can check if a particular class is a
+subclass of any other class.
+
+```py
+issubclass(ClassOne, ClassTwo)
+
+```
+
+Each class is considered to be a subclass of itself.
+
+The function `isinstance()` checks whether an object is an instance of a class.
+
+```py
+isinstance(objectName, ClassName)
+
+```
+
+Being an instance of a class means that the object has be created using
+attributes from either the class or one of its superclasses.
+
+The `is` operator checks whether two variables refer to the same object.
+
+> Variables don't store the objects themselves, but only the handles pointing
+> to the internal Python memory.
+
+The `super()` function returns a reference to the nearest superclass of the
+class. It accesses the superclass without needing to know its name. It creates
+a context in which you don't have to pass the `self` argument to the method
+being invoked. You can use this mechanism not only to invoke the superclass
+constructor, but also to get access to any of the resources available inside
+the superclass.
+
+When you try to access any object's entity, Python will try to (in this order):
+
+* find it _inside the object_ itself;
+* find it _in all classes_ involved in the object's inheritance line from
+  _bottom to top_;
+
+If both of the above fail, an exception (`AttributeError`) is raised.
+If there is more than one class on a particular inheritance path, Python scans
+them from _left to right_.
+
+_Multiple Inheritance_ occurs when a class has more than one superclass.
+Syntactically, such inheritance is presented as a comma-separated list of
+superclasses put inside parentheses after the new class name.
+
+The entity defined later (in the inheritance sense) **overrides** the same
+entity defined earlier.
+
+Python looks for an entity from **bottom to top**.
+
+The situation in which the subclass is able to modify its superclass behaviour
+is called **polymorphism**. Each class's behaviour may be modified at any time
+by any of its subclasses.
+
+**Composition** is the process of composing an object using other different
+objects.
+
+It can be said that:
+
+* _inheritance_ **extends** a class's capabilities by adding new components and
+  and modifying existing ones.
+* _composition_ **projects** a class as a container able to store and use other
+  objects (derived from other classes) where each of the objects implements a
+  part of a desired class's behaviour.
+
+Don't forget that:
+
+* a single inheritance class is always simpler, safer, and easier to understand
+  and maintain;
+* multiple inheritance is always risky, as you have many more opportunities to
+  make a mistake in identifying these parts of the superclasses which will
+  effectively influence the new class;
+* multiple inheritance may make overriding extremely tricky; moreover, using
+  `super()` function becomes ambiguous;
+* multiple inheritance violates the _single responsibility principle_ as it
+  makes a new class of two (or more) classes that know nothing about each other
+* if you really need the many different functionalities offered by different
+  classes, _composition_ may be a better alternative.
+
+**MRO** (_Method Resolution Order_), in general, is a way in which a particular
+programming language scans through the upper part of a class's hierarchy in
+order to find the method it currently needs. Different languages use slightly
+(or even completely) different MROs.
+
+Python's MRO cannot be bent or violated, not just because that's the way Python
+works, but also because it's a rule you have to obey.
+
 ### Section 6 - Exceptions once again
 
 ## Module 4. MISCELLANEOUS
